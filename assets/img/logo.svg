@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" fill="none">
+  <rect width="160" height="40" rx="8" fill="#0B1B2B"/>
+  <text x="16" y="26" font-family="Inter, Arial" font-size="18" fill="#FFFFFF">Debt</text>
+  <text x="66" y="26" font-family="Inter, Arial" font-size="18" fill="#23A094">Dev</text>
+</svg>

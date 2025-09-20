@@ -1,0 +1,7 @@
+How to plug them in:
+
+Open the HTML snippet and drop the sections into your index.html <main> area (it matches the Bootstrap/jQuery skeleton I gave you).
+
+Put the PDF into /assets/downloads/ on your site and link to it from the CTA.
+
+Hand the calculator spec to your devs—it's ready for front-end build now and has clear server-side hooks for later.

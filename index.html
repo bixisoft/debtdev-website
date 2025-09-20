@@ -1,374 +1,334 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DebtDev | Compliance‑First Fintech Engineering</title>
-  <meta name="description" content="DebtDev — Compliance‑first fintech engineering for debt, credit, and collections. Launch secure, performant apps fast." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DebtDev — Compliance‑first fintech builders for debt & credit</title>
+  <meta name="description" content="DebtDev builds compliant, conversion-ready tech for debt consolidation: eligibility calculators, CRM & dialer integrations, consent logging, analytics, and agent ops.">
+  <meta property="og:title" content="DebtDev — Fintech builders for debt & credit">
+  <meta property="og:description" content="Lead funnels, eligibility engines, CRM/dialer integrations, compliance toolkits, analytics.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://debtdev.com/">
+  <meta property="og:image" content="assets/img/og-placeholder.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0B1B2B">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b0f14;           /* page background */
-      --panel:#111826;        /* panels/cards */
-      --muted:#97a3b6;        /* secondary text */
-      --text:#e6eefc;         /* primary text */
-      --brand:#12b886;        /* emerald */
-      --brand-2:#3b82f6;      /* blue accent */
-      --danger:#ef4444;       /* red */
-      --warning:#f59e0b;      /* amber */
-      --success:#22c55e;      /* green */
-      --ring:rgba(59,130,246,.45);
-      --radius:18px;
-      --shadow:0 20px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.03);
-      --grid: minmax(0,1fr) minmax(0,1200px) minmax(0,1fr);
-    }
-
-    *,*::before,*::after{ box-sizing:border-box }
-    html,body{ height:100% }
-    body{
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
-      background: radial-gradient(1200px 800px at 80% -10%, rgba(59,130,246,.18), transparent 60%),
-                  radial-gradient(1000px 600px at 10% -10%, rgba(18,184,134,.18), transparent 60%),
-                  var(--bg);
-      color:var(--text);
-      letter-spacing:.2px;
-    }
-
-    .container{ display:grid; grid-template-columns:var(--grid); }
-    .container > * { grid-column:2 }
-
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(120%) blur(12px);
-      background:linear-gradient(180deg, rgba(11,15,20,.9), rgba(11,15,20,.6));
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; }
-    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text) }
-    .logo{ width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); display:grid; place-items:center; box-shadow:var(--shadow) }
-    .logo svg{ width:22px; height:22px; filter:drop-shadow(0 2px 3px rgba(0,0,0,.4)) }
-    .brand span{ font-weight:800; font-size:18px; letter-spacing:.4px }
-    .nav a.cta{ padding:10px 14px; border-radius:12px; background:linear-gradient(135deg, var(--brand), #0ea5e9); color:#041016; font-weight:700; text-decoration:none; box-shadow:0 8px 24px rgba(18,184,134,.35) }
-    .nav .links{ display:flex; gap:18px }
-    .nav .links a{ color:var(--muted); text-decoration:none; font-weight:600; }
-    .menu{ display:none }
-
-    /* Hero */
-    .hero{ padding:80px 16px 48px; position:relative; }
-    .eyebrow{ display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; background:rgba(18,184,134,.1); color:#b9ffe2; font-weight:700; border:1px solid rgba(18,184,134,.35) }
-    .hero h1{ font-size:clamp(28px, 5vw, 56px); line-height:1.05; margin:18px 0 10px; letter-spacing:-.5px }
-    .hero p{ color:var(--muted); max-width:820px; font-size:18px }
-
-    .hero-cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:22px }
-    .btn{ padding:12px 16px; border-radius:14px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.02); color:var(--text); text-decoration:none; font-weight:700 }
-    .btn.primary{ background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#041016; border:none; box-shadow:0 10px 30px rgba(18,184,134,.35) }
-
-    .hero-grid{ margin-top:42px; display:grid; gap:16px; grid-template-columns: repeat(12, minmax(0, 1fr)); }
-    .card{ background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow) }
-    .card h3{ margin:0 0 6px; font-size:16px }
-    .card p{ margin:0; color:var(--muted); font-size:14px }
-
-    .kpi{ display:flex; align-items:center; gap:12px }
-    .badge{ padding:6px 10px; border-radius:10px; background:rgba(59,130,246,.12); border:1px solid rgba(59,130,246,.25); color:#b9d3ff; font-size:12px; font-weight:800 }
-
-    /* Sections */
-    section{ padding:64px 16px }
-    .section-head{ display:flex; align-items:end; justify-content:space-between; gap:12px; margin-bottom:22px }
-    .section-head h2{ margin:0; font-size:28px; letter-spacing:-.3px }
-    .section-head p{ margin:0; color:var(--muted) }
-
-    .features{ display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .feature{ position:relative; overflow:hidden }
-    .feature .chip{ position:absolute; top:14px; right:14px; font-size:11px; padding:6px 8px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); color:var(--muted) }
-
-    /* Showcase */
-    .showcase{ display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    .mock{ aspect-ratio: 16/10; background:linear-gradient(180deg, #07111e, #0c1728); border-radius:16px; border:1px solid rgba(255,255,255,.06); position:relative; overflow:hidden }
-    .mock::before{ content:""; position:absolute; inset:0; background:radial-gradient(500px 300px at 20% 10%, rgba(59,130,246,.25), transparent 60%), radial-gradient(500px 300px at 80% 20%, rgba(18,184,134,.22), transparent 60%)}
-    .mock .bar{ height:34px; background:rgba(255,255,255,.04); border-bottom:1px solid rgba(255,255,255,.08); display:flex; align-items:center; gap:6px; padding:0 10px }
-    .dot{ width:10px; height:10px; border-radius:50%; background:#ef4444; box-shadow:12px 0 0 #f59e0b, 24px 0 0 #22c55e }
-
-    /* Process */
-    .process{ display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); counter-reset:step }
-    .step{ position:relative; padding-top:10px }
-    .step::before{ counter-increment:step; content: counter(step); position:absolute; top:-14px; left:-8px; width:36px; height:36px; border-radius:12px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#041016; display:grid; place-items:center; font-weight:900; box-shadow:var(--shadow) }
-
-    /* FAQ */
-    details{ border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:14px 16px; background:rgba(255,255,255,.02) }
-    summary{ cursor:pointer; font-weight:700 }
-
-    /* Footer */
-    footer{ padding:48px 16px; border-top:1px solid rgba(255,255,255,.08); color:var(--muted) }
-
-    /* Responsive hero grid placements */
-    @media (min-width: 960px){
-      .hero-grid .span-6{ grid-column:span 6 }
-      .hero-grid .span-3{ grid-column:span 3 }
-      .hero-grid .span-4{ grid-column:span 4 }
-    }
-
-    /* Simple utility */
-    .muted{ color:var(--muted) }
-    .row{ display:flex; gap:10px; flex-wrap:wrap }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Font Awesome 6 Free -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-w85j6zJrQmV3m+z0j1WbqgXu6bqXfTqf8r3I6oE8kH5g7LhQk7h7fQxF0qk7QG5qj3x9q2mQ4mCzF7u2i4q1hQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="assets/img/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "DebtDev",
+    "url": "https://debtdev.com/",
+    "logo": "https://debtdev.com/assets/img/logo.svg",
+    "sameAs": []
+  }
+  </script>
 </head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <nav class="nav">
-        <a class="brand" href="#top" aria-label="DebtDev home">
-          <div class="logo" aria-hidden="true">
-            <!-- DD monogram -->
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 5h5.5a5.5 5.5 0 1 1 0 11H6V5Z" stroke="white" stroke-width="2"/>
-              <path d="M12.5 8H18a4 4 0 1 1 0 8h-5.5V8Z" stroke="white" stroke-opacity=".8"/>
-            </svg>
-          </div>
-          <span>DebtDev</span>
-        </a>
-        <div class="links">
-          <a href="#services">Services</a>
-          <a href="#work">Work</a>
-          <a href="#process">Process</a>
-          <a href="#faq">FAQ</a>
+<body class="bg-dd">
+  <!-- Skip link -->
+  <a class="visually-hidden-focusable skip-link" href="#main">Skip to content</a>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-navy border-bottom sticky-top" aria-label="Main Navigation">
+    <div class="container-xl">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/img/logo.svg" alt="DebtDev" height="28" class="me-2">
+        <span class="fw-bold">Debt<span class="text-emerald">Dev</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#solutions">Solutions</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#case-studies">Case Studies</a></li>
+          <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+        </ul>
+        <div class="d-flex ms-lg-3 gap-2">
+          <a class="btn btn-outline-primary" href="#demo">See Demo</a>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#auditModal">Free Tech Audit</button>
         </div>
-        <a class="cta" href="#contact">Book a Discovery Call</a>
-      </nav>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="py-5 py-lg-6 bg-gradient-navy text-white">
+    <div class="container-xl">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7">
+          <h1 class="display-5 fw-bold lh-tight">Compliance‑first fintech builders for debt & credit.</h1>
+          <p class="lead mt-3 text-steel-200">We design, build, and scale tools for lenders, debt consultants, and call centers—lead funnels, eligibility engines, CRM/dialer integrations, payments, and analytics.</p>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#auditModal"><i class="fa-solid fa-magnifying-glass-chart me-2"></i>Get a Free Tech Audit</button>
+            <a class="btn btn-outline-light btn-lg" href="#demo"><i class="fa-regular fa-circle-play me-2"></i>See Live Demo</a>
+          </div>
+          <div class="mt-4 small text-steel-200"><i class="fa-solid fa-shield-check me-2"></i>TCPA/DNC consent capture • PCI-aware payment flows • Server-side tracking</div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card shadow-soft border-0">
+            <div class="card-body p-4">
+              <h2 class="h5 fw-semibold mb-3"><i class="fa-solid fa-calculator me-2 text-emerald"></i>DTI & Hardship Mini Calculator</h2>
+              <form id="miniCalc" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="income" class="form-label">Monthly Income (USD)</label>
+                    <input type="number" step="0.01" min="0" class="form-control" id="income" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="payments" class="form-label">Monthly Debt Payments (USD)</label>
+                    <input type="number" step="0.01" min="0" class="form-control" id="payments" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="household" class="form-label">Household Size</label>
+                    <select id="household" class="form-select" required>
+                      <option value="" selected disabled>Choose…</option>
+                      <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 d-grid d-md-flex align-items-end justify-content-end">
+                    <button class="btn btn-dark mt-md-3" type="submit"><i class="fa-solid fa-equals me-2"></i>Calculate</button>
+                  </div>
+                </div>
+                <div id="calcResult" class="alert mt-3 d-none" role="status"></div>
+                <button id="emailResult" type="button" class="btn btn-outline-primary mt-2 d-none" data-bs-toggle="modal" data-bs-target="#auditModal">
+                  Email me this result
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <main id="top" class="container">
-    <section class="hero">
-      <span class="eyebrow">Compliance‑First • PCI‑DSS • SOC 2 • HIPAA</span>
-      <h1>Fintech Engineering for <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">Debt & Credit</span> teams that need to ship <em>fast</em> — and stay compliant.</h1>
-      <p>We design, build, and integrate secure fintech products across the debt lifecycle: lead funnels, credit pulls, underwriting, agent desktops, analytics, and collections—wired into CRMs like Salesforce, Five9, and bespoke LAMP stacks.</p>
-      <div class="hero-cta">
-        <a class="btn primary" href="#contact">Start a project</a>
-        <a class="btn" href="#work">See case studies</a>
-      </div>
-
-      <div class="hero-grid">
-        <div class="card span-6">
-          <div class="kpi">
-            <span class="badge">Uptime 99.99%</span>
-          </div>
-          <h3>Battle‑tested infrastructure</h3>
-          <p>Hardened Linux, Nginx, PHP‑FPM, Redis, and managed MySQL with proper backups, observability, and least‑privilege access.</p>
-        </div>
-        <div class="card span-3">
-          <h3>Data privacy</h3>
-          <p>Pseudonymization, field‑level encryption, and audit logs to keep PII safe.</p>
-        </div>
-        <div class="card span-3">
-          <h3>Integrations</h3>
-          <p>Salesforce, Five9, Plaid, Twilio, Mailgun, Experian, TransUnion, and more.</p>
-        </div>
-        <div class="card span-4">
-          <h3>Debt analytics</h3>
-          <p>KPIs, cohorts, agent scorecards, and TV boards built for performance.</p>
-        </div>
-        <div class="card span-4">
-          <h3>Secure forms</h3>
-          <p>Conversion‑optimized multi‑step flows with validation and DNC checks.</p>
-        </div>
-        <div class="card span-4">
-          <h3>Ops automation</h3>
-          <p>ETLs, cron pipelines, lead de‑dupe, and compliance alerts across the stack.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Services -->
-  <section id="services" class="container">
-    <div class="section-head">
-      <h2>What we do</h2>
-      <p class="muted">Engineering, analytics, and growth for debt & credit products</p>
-    </div>
-    <div class="features">
-      <div class="card feature">
-        <span class="chip">Funnels</span>
-        <h3>Acquisition & Lead Ops</h3>
-        <p>Landing pages, multi‑step forms, lead validation, DNC, consent capture, and routing into CRMs and dialers.</p>
-      </div>
-      <div class="card feature">
-        <span class="chip">Underwriting</span>
-        <h3>Credit Pulls & Decisions</h3>
-        <p>Integrations with bureaus and data providers, scorecards, and offer generation with transparent audit trails.</p>
-      </div>
-      <div class="card feature">
-        <span class="chip">Sales Ops</span>
-        <h3>Agent Desktops</h3>
-        <p>Blazing‑fast LAMP/SPA dashboards, CTI controls, and scripts designed to reduce AHT and boost conversions.</p>
-      </div>
-      <div class="card feature">
-        <span class="chip">Analytics</span>
-        <h3>Dashboards & TV Boards</h3>
-        <p>Executive and team reporting, daily digests, and anomaly detection for predictable growth.</p>
-      </div>
-      <div class="card feature">
-        <span class="chip">Compliance</span>
-        <h3>Security by Design</h3>
-        <p>Hardening, SSO, RBAC, least‑privilege, encryption, and logging mapped to SOC 2 and PCI‑DSS controls.</p>
-      </div>
-      <div class="card feature">
-        <span class="chip">Support</span>
-        <h3>Maintain & Scale</h3>
-        <p>SLA‑backed support, monitoring, and capacity planning so your stack can scale with demand.</p>
+  <!-- Integrations marquee -->
+  <section class="py-4 border-top bg-white">
+    <div class="container-xl">
+      <div class="logos-marquee d-flex align-items-center gap-5">
+        <span class="logo-ph">Salesforce</span>
+        <span class="logo-ph">Five9</span>
+        <span class="logo-ph">Twilio</span>
+        <span class="logo-ph">Stripe</span>
+        <span class="logo-ph">Plaid</span>
+        <span class="logo-ph">Forth</span>
+        <span class="logo-ph">HubSpot</span>
       </div>
     </div>
   </section>
 
-  <!-- Showcase / Case studies -->
-  <section id="work" class="container">
-    <div class="section-head">
-      <h2>Recent work</h2>
-      <p class="muted">Redacted client names — sample interfaces</p>
-    </div>
-    <div class="showcase">
-      <article class="card">
-        <div class="mock">
-          <div class="bar"><span class="dot"></span></div>
-        </div>
-        <h3 style="margin:12px 0 6px">Debt Analytics Platform</h3>
-        <p class="muted">Commission dashboards, QA trackers, and collections KPIs with row‑level security.</p>
-      </article>
-      <article class="card">
-        <div class="mock">
-          <div class="bar"><span class="dot"></span></div>
-        </div>
-        <h3 style="margin:12px 0 6px">Agent Performance Suite</h3>
-        <p class="muted">Real‑time agent tiles, call outcomes, and leaderboards on wall screens.</p>
-      </article>
-      <article class="card">
-        <div class="mock">
-          <div class="bar"><span class="dot"></span></div>
-        </div>
-        <h3 style="margin:12px 0 6px">Credit & Offer Flow</h3>
-        <p class="muted">Secure multi‑step application with bureau pulls and compliant e‑consent.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section id="process" class="container">
-    <div class="section-head">
-      <h2>How we work</h2>
-      <p class="muted">A lightweight, auditable delivery model</p>
-    </div>
-    <div class="process">
-      <div class="card step">
-        <h3>Discovery & Threat Model</h3>
-        <p>Map data flows, PII surfaces, and control requirements; align outcomes and KPIs.</p>
+  <!-- Value pillars -->
+  <main id="main">
+  <section id="solutions" class="py-6">
+    <div class="container-xl">
+      <div class="text-center mb-5">
+        <h2 class="h1 fw-bold">What we build</h2>
+        <p class="text-steel">Eligibility engines, CRM & dialer integrations, compliance toolkits, analytics & QA.</p>
       </div>
-      <div class="card step">
-        <h3>Architecture & Plan</h3>
-        <p>Choose the simplest secure design: LAMP + integrations, documented with sequence diagrams.</p>
-      </div>
-      <div class="card step">
-        <h3>Build & Harden</h3>
-        <p>Implement features with code reviews, CI, and infra hardening from day one.</p>
-      </div>
-      <div class="card step">
-        <h3>Launch & Operate</h3>
-        <p>Observability, backups, incident runbooks, and SLA‑based support.</p>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="kpi-icon bg-emerald text-white"><i class="fa-solid fa-gauge"></i></div>
+              <h3 class="h5 mt-3">Eligibility & Offer Engines</h3>
+              <p class="mb-0">DTI, hardship, payment planning and side‑by‑side offer comparison.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="kpi-icon bg-emerald text-white"><i class="fa-solid fa-plug"></i></div>
+              <h3 class="h5 mt-3">CRM & Dialer Integrations</h3>
+              <p class="mb-0">Salesforce/HubSpot + Five9/Twilio with consent logging & server‑side events.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="kpi-icon bg-emerald text-white"><i class="fa-solid fa-shield-halved"></i></div>
+              <h3 class="h5 mt-3">Compliance Toolkit</h3>
+              <p class="mb-0">TCPA/DNC capture, audit trails, PCI‑aware payment flows.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="kpi-icon bg-emerald text-white"><i class="fa-solid fa-chart-line"></i></div>
+              <h3 class="h5 mt-3">Analytics & QA</h3>
+              <p class="mb-0">Exec boards, TV dashboards, agent scorecards, commissions.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="container">
-    <div class="section-head">
-      <h2>FAQ</h2>
-      <p class="muted">Straight answers for common questions</p>
-    </div>
-    <div class="row">
-      <details class="card" style="flex:1 1 340px">
-        <summary>Do you work with existing LAMP stacks?</summary>
-        <p class="muted">Yes. We modernize legacy PHP apps, add APIs, improve performance, and instrument analytics without risky rewrites.</p>
-      </details>
-      <details class="card" style="flex:1 1 340px">
-        <summary>What about compliance?</summary>
-        <p class="muted">We align security controls to SOC 2/PCI‑DSS, implement data minimization, and maintain clear audit logs.</p>
-      </details>
-      <details class="card" style="flex:1 1 340px">
-        <summary>How fast can we launch?</summary>
-        <p class="muted">Most proof‑of‑concepts in 2–4 weeks depending on scope; critical integrations prioritized.</p>
-      </details>
+  <!-- Case studies -->
+  <section id="case-studies" class="py-6 bg-white border-top">
+    <div class="container-xl">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="h3 fw-bold mb-0">Case Studies</h2>
+        <a href="#" class="btn btn-sm btn-outline-primary">View all</a>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h5">Debt Consultant Ops Uplift</h3>
+              <ul class="list-unstyled small">
+                <li><i class="fa-solid fa-circle-check text-emerald me-2"></i><strong>+23%</strong> transfer‑to‑close</li>
+                <li><i class="fa-solid fa-circle-check text-emerald me-2"></i><strong>–18%</strong> chargebacks</li>
+                <li><i class="fa-solid fa-circle-check text-emerald me-2"></i><strong>99.98%</strong> consent logging accuracy</li>
+              </ul>
+              <p class="mb-0 text-steel">Stack: Salesforce, Five9, Twilio, server‑side events, consent logs</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h5">Call Center Productivity</h3>
+              <ul class="list-unstyled small">
+                <li><i class="fa-solid fa-circle-check text-emerald me-2"></i><strong>+35%</strong> agent productivity</li>
+                <li><i class="fa-solid fa-circle-check text-emerald me-2"></i><strong>+12%</strong> show rate</li>
+                <li><i class="fa-solid fa-circle-check text-emerald me-2"></i><strong>–22%</strong> AHT</li>
+              </ul>
+              <p class="mb-0 text-steel">Stack: QA scorecards, whisper coaching hooks, dashboards</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="h5">Compliance Baseline</h3>
+              <ul class="list-unstyled small">
+                <li><i class="fa-solid fa-circle-check text-emerald me-2"></i>TCPA/DNC capture</li>
+                <li><i class="fa-solid fa-circle-check text-emerald me-2"></i>PCI‑aware payment flows</li>
+                <li><i class="fa-solid fa-circle-check text-emerald me-2"></i>Audit trails</li>
+              </ul>
+              <p class="mb-0 text-steel">Stack: Server‑side logs, policy pages, retention rules</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="container">
-    <div class="section-head">
-      <h2>Let’s build</h2>
-      <p class="muted">Tell us about your project and goals</p>
-    </div>
-    <div class="card" style="max-width:920px; margin-inline:auto">
-      <form action="#" method="post" onsubmit="event.preventDefault(); alert('Thanks! This is a static demo. Hook this form to your backend.');">
-        <div class="row">
-          <div style="flex:1 1 260px">
-            <label for="name">Name</label><br>
-            <input id="name" name="name" placeholder="Your full name" required style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.02); color:var(--text); outline:none; margin-top:6px" />
-          </div>
-          <div style="flex:1 1 260px">
-            <label for="email">Email</label><br>
-            <input id="email" name="email" type="email" placeholder="you@company.com" required style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.02); color:var(--text); outline:none; margin-top:6px" />
-          </div>
+  <!-- CTA band -->
+  <section class="py-6 text-center">
+    <div class="container-xl">
+      <div class="card mx-auto" style="max-width:900px;">
+        <div class="card-body p-5">
+          <h2 class="h3 fw-bold">Get a free 30‑minute tech audit</h2>
+          <p class="text-steel mb-4">We’ll map your lead‑to‑call flow and send a 10‑point fix list within 72 hours.</p>
+          <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#auditModal"><i class="fa-solid fa-calendar-check me-2"></i>Book now</button>
         </div>
-        <div class="row" style="margin-top:12px">
-          <div style="flex:1 1 200px">
-            <label for="company">Company</label><br>
-            <input id="company" name="company" placeholder="Organization" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.02); color:var(--text); outline:none; margin-top:6px" />
-          </div>
-          <div style="flex:1 1 200px">
-            <label for="budget">Budget</label><br>
-            <select id="budget" name="budget" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.02); color:var(--text); outline:none; margin-top:6px">
-              <option>— Select —</option>
-              <option>Under $5k</option>
-              <option>$5k — $15k</option>
-              <option>$15k — $50k</option>
-              <option>$50k+</option>
-            </select>
-          </div>
-        </div>
-        <div style="margin-top:12px">
-          <label for="msg">Project Brief</label><br>
-          <textarea id="msg" name="message" rows="5" placeholder="What are you trying to build?" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.02); color:var(--text); outline:none; margin-top:6px"></textarea>
-        </div>
-        <div class="row" style="margin-top:16px; align-items:center; justify-content:space-between">
-          <div class="muted">By submitting you agree to our privacy policy.</div>
-          <button class="btn primary" type="submit">Send Request</button>
-        </div>
-      </form>
+      </div>
     </div>
   </section>
 
-  <footer class="container">
-    <div class="row" style="align-items:center; justify-content:space-between">
-      <div class="row" style="align-items:center; gap:10px">
-        <div class="logo" aria-hidden="true" style="width:28px;height:28px;border-radius:8px"></div>
-        <strong>DebtDev</strong>
-        <span class="muted">© <span id="year"></span> All rights reserved.</span>
+  <!-- Footer -->
+  <footer class="py-5 bg-navy text-white mt-auto">
+    <div class="container-xl">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mb-3">
+            <img src="assets/img/logo.svg" alt="DebtDev" height="24" class="me-2">
+            <span class="fw-semibold">Debt<span class="text-emerald">Dev</span></span>
+          </div>
+          <p class="small text-steel-200">DebtDev, a fintech engineering studio focused on debt, credit, and consolidation.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a class="text-decoration-none me-3 link-light" href="#">Privacy</a>
+          <a class="text-decoration-none me-3 link-light" href="#">TCPA & DNC</a>
+          <a class="text-decoration-none link-light" href="#">Contact</a>
+        </div>
       </div>
-      <div class="row muted">
-        <a href="#services" style="color:inherit; text-decoration:none">Services</a>
-        <span>•</span>
-        <a href="#work" style="color:inherit; text-decoration:none">Work</a>
-        <span>•</span>
-        <a href="#contact" style="color:inherit; text-decoration:none">Contact</a>
-      </div>
+      <div class="small text-center text-md-start mt-3 text-steel-200">© <span id="year"></span> DebtDev. All rights reserved.</div>
     </div>
   </footer>
 
-  <script>
-    // small niceties
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- Free Audit Modal -->
+  <div class="modal fade" id="auditModal" tabindex="-1" aria-labelledby="auditModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="auditModalLabel">Request Free Tech Audit</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="auditForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label" for="name">Full Name</label>
+                <input class="form-control" id="name" name="name" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="company">Company</label>
+                <input class="form-control" id="company" name="company" required>
+                <div class="invalid-feedback">Please enter your company.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="email">Work Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <div class="invalid-feedback">Enter a valid email.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="phone">Phone</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+                <div class="invalid-feedback">Enter a valid phone.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="volume">Monthly Lead Volume</label>
+                <select id="volume" name="volume" class="form-select" required>
+                  <option value="" selected disabled>Choose…</option>
+                  <option>Under 1,000</option>
+                  <option>1,000–5,000</option>
+                  <option>5,000–20,000</option>
+                  <option>20,000+</option>
+                </select>
+                <div class="invalid-feedback">Please select a volume.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="message">What should we look at?</label>
+                <textarea id="message" name="message" class="form-control" rows="3" placeholder="Briefly describe your stack/issues…"></textarea>
+              </div>
+              <div class="col-12 form-check mt-2">
+                <input class="form-check-input" type="checkbox" value="" id="consent" required>
+                <label class="form-check-label" for="consent">
+                  I consent to be contacted about my inquiry and acknowledge TCPA & DNC policies.
+                </label>
+                <div class="invalid-feedback">Consent is required.</div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="submitAudit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Bundle with Popper, then jQuery (placed after to allow $ in our file to run last) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

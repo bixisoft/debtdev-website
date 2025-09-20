@@ -1,0 +1,33 @@
+/* DebtDev styles */
+:root{
+  --dd-navy:#0B1B2B; --dd-emerald:#23A094; --dd-slate:#2E3A46; --dd-steel:#5C6B7A;
+  --dd-bg:#F6F8FA; --dd-success:#1FBF9A; --dd-warn:#F5A524; --dd-danger:#D64545;
+  --radius:12px;
+}
+body{font-family:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color:var(--dd-navy); background:var(--dd-bg);}
+.bg-navy{background-color:var(--dd-navy)!important;}
+.text-emerald{color:var(--dd-emerald)!important;}
+.bg-emerald{background-color:var(--dd-emerald)!important;}
+.text-steel{color:var(--dd-steel)!important;}
+.text-steel-200{color:#A3B1BF!important;}
+.bg-dd{background:var(--dd-bg);}
+.btn-primary{background:var(--dd-emerald); border-color:var(--dd-emerald);}
+.btn-primary:hover{filter:brightness(0.92);}
+.card{border-radius:var(--radius); box-shadow:0 8px 24px rgba(11,27,43,.08);}
+.kpi-icon{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:10px;}
+.py-6{padding-top:4rem; padding-bottom:4rem;}
+.bg-gradient-navy{background:linear-gradient(180deg, #0B1B2B 0%, #11283D 100%);}
+.navbar .nav-link{opacity:.9;}
+.navbar .nav-link:hover{opacity:1;}
+.skip-link{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;}
+.skip-link:focus{left:1rem; top:1rem; width:auto; height:auto; background:#fff; padding:.5rem 1rem; z-index:1000;}
+/* logos marquee */
+.logos-marquee{overflow:hidden; white-space:nowrap; animation:scroll 25s linear infinite;}
+.logo-ph{display:inline-block; padding:.5rem 1rem; border:1px solid #e5e9ef; border-radius:8px; color:#5C6B7A; background:#fff;}
+@keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+/* Alerts for calc */
+.alert-eligible{background:#E9FBF4; border-color:var(--dd-success); color:#11624F;}
+.alert-review{background:#FFF7E9; border-color:var(--dd-warn); color:#7A4C00;}
+.alert-not{background:#FCEBEC; border-color:var(--dd-danger); color:#7A1E26;}
+footer a{opacity:.9;}
+footer a:hover{opacity:1;}

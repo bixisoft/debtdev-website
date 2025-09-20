@@ -1,0 +1,24 @@
+all five subpages are ready to drop in, plus a sample article:
+
+Solutions: solutions.html
+
+Products & Accelerators: products.html
+
+Integrations: integrations.html
+
+Resources (with your two PDFs linked): resources.html
+
+Contact (with full TCPA/DNC consent language + validation): contact.html
+
+Sample article: blog-post.html
+
+Or grab them all at once:
+Download the pages (ZIP)
+
+Plug-in steps:
+
+Place these files in your site root next to index.html; paths already reference assets/css/styles.css and assets/js/main.js.
+
+Upload the two PDFs to the same folder (or adjust links in resources.html to /assets/downloads/... if you prefer).
+
+Replace placeholders (logos, demo links) whenever you’re ready

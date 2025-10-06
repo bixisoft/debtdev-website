@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Case studies showcasing how DebtDev helps debt and credit businesses achieve compliance, efficiency, and growth through custom fintech solutions."
+    />
+    <meta name="author" content="DebtDev" />
+    <meta name="theme-color" content="#0B1B2B" />
+    <title>Case Studies | DebtDev - Real Results for Debt & Credit Businesses</title>
+    <meta
+      property="og:title"
+      content="Case Studies — DebtDev Fintech Solutions"
+    />
+    <meta
+      property="og:description"
+      content="See how we've helped debt settlement firms, call centers, and lenders achieve measurable results."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://debtdev.com/case-studies.html" />
+    <meta property="og:image" content="assets/img/og-placeholder.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Animate.css for smooth animations -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- AOS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Hover.css for button effects -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Custom styles for better UI */
+      .navbar-sticky {
+        transition: all 0.3s ease-in-out;
+      }
+
+      .navbar-sticky.scrolled {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: white;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+      }
+
+      .mobile-menu.active {
+        max-height: 300px;
+      }
+
+      .case-study-hero {
+        background-image: linear-gradient(
+            135deg,
+            rgba(11, 27, 43, 0.9),
+            rgba(46, 58, 70, 0.8)
+          ),
+          url(https://debt-dev-launchpad.lovable.app/assets/hero-bg-CG_0uEu6.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+
+      .case-study-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .case-study-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .stat-card {
+        border-left: 4px solid #28a99c;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root">
+      <div
+        role="region"
+        aria-label="Notifications (F8)"
+        tabindex="-1"
+        style="pointer-events: none"
+      >
+        <ol
+          tabindex="-1"
+          class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"
+        ></ol>
+      </div>
+    </div>
+
+    <section
+      aria-label="Notifications alt+T"
+      tabindex="-1"
+      aria-live="polite"
+      aria-relevant="additions text"
+      aria-atomic="false"
+    ></section>
+
+    <div class="min-h-screen bg-background">
+      <!-- Navigation -->
+      <nav
+        class="navbar-sticky fixed w-full top-0 left-0 z-50 bg-white shadow-sm"
+      >
+        <div class="container mx-auto px-4">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+              <a href="index.html">
+                <img
+                  src="../assets/img/logo.png"
+                  alt="DebtDev Logo"
+                  class="h-12 w-auto"
+                />
+              </a>
+            </div>
+
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-center space-x-8">
+                <a
+                  href="solutions.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Solutions</a
+                >
+                <a
+                  href="products.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Products</a
+                >
+                <a
+                  href="case-studies.html"
+                  class="text-navy hover:text-navy transition-colors duration-200 font-medium"
+                  >Case Studies</a
+                >
+                <a
+                  href="integrations.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Integrations</a
+                >
+                <a
+                  href="resources.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Resources</a
+                >
+                <a
+                  href="about.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >About</a
+                >
+              </div>
+            </div>
+
+            <div class="hidden md:block">
+              <a href="contact.html">
+                <button
+                  style="background-color: #28a99c"
+                  class="text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 btn-primary"
+                >
+                  Get Free Audit
+                </button>
+              </a>
+            </div>
+
+            <div class="md:hidden">
+              <button
+                id="mobile-menu-button"
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 text-navy"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-menu"
+                >
+                  <line x1="4" x2="20" y1="12" y2="12"></line>
+                  <line x1="4" x2="20" y1="6" y2="6"></line>
+                  <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile Menu -->
+          <div id="mobile-menu" class="mobile-menu md:hidden">
+            <div class="py-4 space-y-4">
+              <a
+                href="solutions.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Solutions</a
+              >
+              <a
+                href="products.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Products</a
+              >
+              <a
+                href="case-studies.html"
+                class="block text-navy hover:text-navy transition-colors duration-200 font-medium"
+                >Case Studies</a
+              >
+              <a
+                href="integrations.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Integrations</a
+              >
+              <a
+                href="resources.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Resources</a
+              >
+              <a
+                href="about.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >About</a
+              >
+              <a href="contact.html">
+                <button
+                  style="background-color: #28a99c"
+                  class="text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 btn-primary w-full"
+                >
+                  Get Free Audit
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="case-study-hero min-h-[60vh] flex items-center py-20 relative">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-4xl mx-auto text-center">
+            <div class="animate-fade-in-up">
+              <h1
+                class="text-4xl text-white md:text-5xl font-bold mb-6 leading-tight"
+              >
+                Real Results for Debt & Credit Businesses
+              </h1>
+              <p
+                class="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed"
+              >
+                See how we've helped lenders, debt consultants, and call centers achieve compliance, efficiency, and growth through custom fintech solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case Studies Grid -->
+      <section class="py-20 bg-background">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-navy mb-4">
+              Featured Case Studies
+            </h2>
+            <p class="text-xl text-steel max-w-3xl mx-auto">
+              Explore detailed success stories across different segments of the debt and credit industry.
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <!-- Case Study 1 -->
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm case-study-card h-full"
+              data-aos="fade-up"
+            >
+              <div class="flex flex-col space-y-1.5 p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <span
+                    class="px-3 py-1 bg-emerald/10 text-emerald text-sm font-medium rounded-full"
+                    >Debt Settlement</span
+                  >
+                </div>
+                <h3 class="font-semibold tracking-tight text-xl text-navy">
+                  Debt Settlement Firm Automation
+                </h3>
+                <p class="text-sm text-steel">
+                  Streamlined lead qualification and agent workflows for a growing settlement practice.
+                </p>
+              </div>
+
+              <div class="p-6 pt-0 space-y-6">
+                <div class="grid grid-cols-1 gap-4">
+                  <div
+                    class="flex items-center space-x-3 p-3 bg-muted/20 rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style="color: #28a99c"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-trending-up h-5 w-5 text-emerald"
+                    >
+                      <polyline
+                        points="22 7 13.5 15.5 8.5 10.5 2 17"
+                      ></polyline>
+                      <polyline points="16 7 22 7 22 13"></polyline>
+                    </svg>
+                    <div>
+                      <div class="text-sm text-steel">Transfer Rate</div>
+                      <div class="font-bold text-navy">+23%</div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-center space-x-3 p-3 bg-muted/20 rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style="color: #28a99c"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-users h-5 w-5 text-emerald"
+                    >
+                      <path
+                        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                      ></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <div>
+                      <div class="text-sm text-steel">Agent Efficiency</div>
+                      <div class="font-bold text-navy">+40%</div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-center space-x-3 p-3 bg-muted/20 rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style="color: #28a99c"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-clock h-5 w-5 text-emerald"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <div>
+                      <div class="text-sm text-steel">Processing Time</div>
+                      <div class="font-bold text-navy">-60%</div>
+                    </div>
+                  </div>
+                </div>
+
+                <blockquote
+                  class="italic text-steel border-l-4 border-emerald pl-4"
+                >
+                  "DebtDev transformed our operations. We went from manual processes to a fully automated lead funnel in 3 weeks."
+                </blockquote>
+
+                <a href="case-study-settlement.html">
+                  <button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full"
+                  >
+                    View Full Case Study
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm case-study-card h-full"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="flex flex-col space-y-1.5 p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <span
+                    class="px-3 py-1 bg-emerald/10 text-emerald text-sm font-medium rounded-full"
+                    >Call Center/BPO</span
+                  >
+                </div>
+                <h3 class="font-semibold tracking-tight text-xl text-navy">
+                  Call Center Compliance Overhaul
+                </h3>
+                <p class="text-sm text-steel">
+                  Implemented comprehensive TCPA compliance and agent performance tracking.
+                </p>
+              </div>
+
+              <div class="p-6 pt-0 space-y-6">
+                <div class="grid grid-cols-1 gap-4">
+                  <div
+                    class="flex items-center space-x-3 p-3 bg-muted/20 rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style="color: #28a99c"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-trending-up h-5 w-5 text-emerald"
+                    >
+                      <polyline
+                        points="22 7 13.5 15.5 8.5 10.5 2 17"
+                      ></polyline>
+                      <polyline points="16 7 22 7 22 13"></polyline>
+                    </svg>
+                    <div>
+                      <div class="text-sm text-steel">Compliance Score</div>
+                      <div class="font-bold text-navy">99.2%</div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-center space-x-3 p-3 bg-muted/20 rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style="color: #28a99c"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-dollar-sign h-5 w-5 text-emerald"
+                    >
+                      <line x1="12" x2="12" y1="2" y2="22"></line>
+                      <path
+                        d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                      ></path>
+                    </svg>
+                    <div>
+                      <div class="text-sm text-steel">Revenue per Agent</div>
+                      <div class="font-bold text-navy">+18%</div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-center space-x-3 p-3 bg-muted/20 rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style="color: #28a99c"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-users h-5 w-5 text-emerald"
+                    >
+                      <path
+                        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                      ></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <div>
+                      <div class="text-sm text-steel">Agent Retention</div>
+                      <div class="font-bold text-navy">+35%</div>
+                    </div>
+                  </div>
+                </div>
+
+                <blockquote
+                  class="italic text-steel border-l-4 border-emerald pl-4"
+                >
+                  "Finally have confidence in our compliance posture while driving better agent performance."
+                </blockquote>
+
+                <a href="case-study-call-center.html">
+                  <button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full"
+                  >
+                    View Full Case Study
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm case-study-card h-full"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="flex flex-col space-y-1.5 p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <span
+                    class="px-3 py-1 bg-emerald/10 text-emerald text-sm font-medium rounded-full"
+                    >Lending/Origination</span
+                  >
+                </div>
+                <h3 class="font-semibold tracking-tight text-xl text-navy">
+                  Lender Lead Quality Optimization
+                </h3>
+                <p class="text-sm text-steel">
+                  Built custom pre-qualification flows to improve lead quality and conversion rates.
+                </p>
+              </div>
+
+              <div class="p-6 pt-0 space-y-6">
+                <div class="grid grid-cols-1 gap-4">
+                  <div
+                    class="flex items-center space-x-3 p-3 bg-muted/20 rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style="color: #28a99c"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-trending-up h-5 w-5 text-emerald"
+                    >
+                      <polyline
+                        points="22 7 13.5 15.5 8.5 10.5 2 17"
+                      ></polyline>
+                      <polyline points="16 7 22 7 22 13"></polyline>
+                    </svg>
+                    <div>
+                      <div class="text-sm text-steel">Lead Quality</div>
+                      <div class="font-bold text-navy">+45%</div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-center space-x-3 p-3 bg-muted/20 rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style="color: #28a99c"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-dollar-sign h-5 w-5 text-emerald"
+                    >
+                      <line x1="12" x2="12" y1="2" y2="22"></line>
+                      <path
+                        d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                      ></path>
+                    </svg>
+                    <div>
+                      <div class="text-sm text-steel">Conversion Rate</div>
+                      <div class="font-bold text-navy">+28%</div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-center space-x-3 p-3 bg-muted/20 rounded-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style="color: #28a99c"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-clock h-5 w-5 text-emerald"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <div>
+                      <div class="text-sm text-steel">Time to Close</div>
+                      <div class="font-bold text-navy">-25%</div>
+                    </div>
+                  </div>
+                </div>
+
+                <blockquote
+                  class="italic text-steel border-l-4 border-emerald pl-4"
+                >
+                  "The pre-qual engine eliminated unqualified leads and dramatically improved our close rates."
+                </blockquote>
+
+                <a href="case-study-lender.html">
+                  <button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full"
+                  >
+                    View Full Case Study
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Case Studies -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mt-16">
+            <!-- Case Study 4 -->
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm case-study-card"
+              data-aos="fade-up"
+            >
+              <div class="p-6">
+                <span
+                  class="px-3 py-1 bg-emerald/10 text-emerald text-sm font-medium rounded-full"
+                  >Credit Counseling</span
+                >
+                <h3 class="font-semibold tracking-tight text-xl text-navy mt-4">
+                  Client Portal & Payment System
+                </h3>
+                <p class="text-sm text-steel mt-2">
+                  Custom client portal with automated payment processing and document management.
+                </p>
+                <div class="flex items-center mt-4">
+                  <span class="font-bold text-emerald">+32%</span>
+                  <span class="text-sm text-steel ml-2">Client Retention</span>
+                </div>
+                <a href="case-study-credit-counseling.html" class="text-emerald font-medium hover:underline mt-4 inline-block">Learn more →</a>
+              </div>
+            </div>
+
+            <!-- Case Study 5 -->
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm case-study-card"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="p-6">
+                <span
+                  class="px-3 py-1 bg-emerald/10 text-emerald text-sm font-medium rounded-full"
+                  >Lead Generation</span
+                >
+                <h3 class="font-semibold tracking-tight text-xl text-navy mt-4">
+                  Multi-Channel Funnel Optimization
+                </h3>
+                <p class="text-sm text-steel mt-2">
+                  Integrated digital marketing with automated lead scoring and distribution.
+                </p>
+                <div class="flex items-center mt-4">
+                  <span class="font-bold text-emerald">+67%</span>
+                  <span class="text-sm text-steel ml-2">Lead-to-Client Rate</span>
+                </div>
+                <a href="case-study-lead-gen.html" class="text-emerald font-medium hover:underline mt-4 inline-block">Learn more →</a>
+              </div>
+            </div>
+
+            <!-- Case Study 6 -->
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm case-study-card"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="p-6">
+                <span
+                  class="px-3 py-1 bg-emerald/10 text-emerald text-sm font-medium rounded-full"
+                  >Debt Buyer</span
+                >
+                <h3 class="font-semibold tracking-tight text-xl text-navy mt-4">
+                  Portfolio Management System
+                </h3>
+                <p class="text-sm text-steel mt-2">
+                  Custom analytics and management platform for debt portfolio acquisition and recovery.
+                </p>
+                <div class="flex items-center mt-4">
+                  <span class="font-bold text-emerald">+41%</span>
+                  <span class="text-sm text-steel ml-2">ROI</span>
+                </div>
+                <a href="case-study-debt-buyer.html" class="text-emerald font-medium hover:underline mt-4 inline-block">Learn more →</a>
+              </div>
+            </div>
+
+            <!-- Case Study 7 -->
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm case-study-card"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="p-6">
+                <span
+                  class="px-3 py-1 bg-emerald/10 text-emerald text-sm font-medium rounded-full"
+                  >Financial Education</span
+                >
+                <h3 class="font-semibold tracking-tight text-xl text-navy mt-4">
+                  Interactive Learning Platform
+                </h3>
+                <p class="text-sm text-steel mt-2">
+                  Custom educational platform with progress tracking and certification.
+                </p>
+                <div class="flex items-center mt-4">
+                  <span class="font-bold text-emerald">+89%</span>
+                  <span class="text-sm text-steel ml-2">Completion Rate</span>
+                </div>
+                <a href="case-study-fin-ed.html" class="text-emerald font-medium hover:underline mt-4 inline-block">Learn more →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detailed Case Study Section -->
+      <section class="py-20 bg-muted/30">
+        <div class="container mx-auto px-4">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+              <h2 class="text-4xl font-bold text-navy mb-4">
+                In-Depth Case Study
+              </h2>
+              <p class="text-xl text-steel max-w-3xl mx-auto">
+                A detailed look at how we transformed operations for a leading debt settlement firm
+              </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm p-8" data-aos="fade-up">
+              <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-2/3">
+                  <div class="flex items-center mb-6">
+                    <span
+                      class="px-3 py-1 bg-emerald/10 text-emerald text-sm font-medium rounded-full mr-4"
+                      >Debt Settlement</span
+                    >
+                    <span class="text-sm text-steel">12-week implementation</span>
+                  </div>
+                  
+                  <h3 class="text-2xl font-bold text-navy mb-4">
+                    Debt Settlement Firm Automation
+                  </h3>
+                  
+                  <div class="prose max-w-none">
+                    <h4 class="text-xl font-semibold text-navy mb-3">The Challenge</h4>
+                    <p class="text-steel mb-6">
+                      A rapidly growing debt settlement firm was struggling with manual lead qualification processes, 
+                      inconsistent agent performance, and compliance risks. Their legacy systems couldn't scale with 
+                      their growth, leading to missed opportunities and operational inefficiencies.
+                    </p>
+                    
+                    <h4 class="text-xl font-semibold text-navy mb-3">Our Solution</h4>
+                    <p class="text-steel mb-6">
+                      We designed and implemented a comprehensive automation platform including:
+                    </p>
+                    <ul class="text-steel mb-6 list-disc pl-5 space-y-2">
+                      <li>Custom DTI and hardship assessment calculator</li>
+                      <li>Automated lead scoring and routing system</li>
+                      <li>Integrated CRM with Five9 dialer</li>
+                      <li>TCPA-compliant consent capture and management</li>
+                      <li>Real-time agent performance dashboards</li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-semibold text-navy mb-3">The Results</h4>
+                    <p class="text-steel mb-6">
+                      Within 30 days of implementation, the firm saw dramatic improvements across all key metrics.
+                    </p>
+                  </div>
+                  
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                    <div class="stat-card bg-muted/10 p-4 rounded-lg">
+                      <div class="text-2xl font-bold text-emerald">+23%</div>
+                      <div class="text-sm text-steel">Transfer Rate</div>
+                    </div>
+                    <div class="stat-card bg-muted/10 p-4 rounded-lg">
+                      <div class="text-2xl font-bold text-emerald">+40%</div>
+                      <div class="text-sm text-steel">Agent Efficiency</div>
+                    </div>
+                    <div class="stat-card bg-muted/10 p-4 rounded-lg">
+                      <div class="text-2xl font-bold text-emerald">-60%</div>
+                      <div class="text-sm text-steel">Processing Time</div>
+                    </div>
+                    <div class="stat-card bg-muted/10 p-4 rounded-lg">
+                      <div class="text-2xl font-bold text-emerald">99.8%</div>
+                      <div class="text-sm text-steel">Compliance Score</div>
+                    </div>
+                  </div>
+                  
+                  <div class="mt-8">
+                    <blockquote class="italic text-steel border-l-4 border-emerald pl-4 py-2">
+                      "DebtDev transformed our operations from manual chaos to automated efficiency. 
+                      We went from struggling to keep up with 200 leads per month to smoothly handling 
+                      800+ with the same team size. Their compliance-first approach gave us the confidence 
+                      to scale without regulatory concerns."
+                    </blockquote>
+                    <div class="mt-4 flex items-center">
+                      <div class="w-10 h-10 bg-emerald rounded-full flex items-center justify-center text-white font-bold mr-3">JD</div>
+                      <div>
+                        <div class="font-medium text-navy">John Davis</div>
+                        <div class="text-sm text-steel">CEO, Premier Debt Solutions</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="md:w-1/3">
+                  <div class="bg-muted/10 rounded-lg p-6 sticky top-8">
+                    <h4 class="font-semibold text-navy mb-4">Project Highlights</h4>
+                    <div class="space-y-4">
+                      <div>
+                        <div class="text-sm text-steel">Industry</div>
+                        <div class="font-medium text-navy">Debt Settlement</div>
+                      </div>
+                      <div>
+                        <div class="text-sm text-steel">Timeline</div>
+                        <div class="font-medium text-navy">12 weeks</div>
+                      </div>
+                      <div>
+                        <div class="text-sm text-steel">Team Size</div>
+                        <div class="font-medium text-navy">45 agents</div>
+                      </div>
+                      <div>
+                        <div class="text-sm text-steel">Monthly Leads</div>
+                        <div class="font-medium text-navy">800+</div>
+                      </div>
+                      <div>
+                        <div class="text-sm text-steel">Technologies</div>
+                        <div class="font-medium text-navy">React, Node.js, Five9, Salesforce</div>
+                      </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                      <h4 class="font-semibold text-navy mb-4">Solutions Implemented</h4>
+                      <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-steel">
+                          <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                          Eligibility Calculator
+                        </li>
+                        <li class="flex items-center text-sm text-steel">
+                          <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                          CRM Integration
+                        </li>
+                        <li class="flex items-center text-sm text-steel">
+                          <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                          Compliance Toolkit
+                        </li>
+                        <li class="flex items-center text-sm text-steel">
+                          <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                          Analytics Dashboard
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <a href="contact.html">
+                      <button
+                        class="mt-6 w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-4 py-2"
+                        style="background-color: #28a99c; color: white"
+                      >
+                        Get Similar Results
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="py-20 bg-background">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold text-navy mb-6">
+              Ready to Transform Your Business?
+            </h2>
+            <p class="text-xl text-steel mb-10 max-w-2xl mx-auto">
+              Schedule a free consultation to see how we can help you achieve similar results with a custom fintech solution.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="contact.html">
+                <button
+                  style="background-color: #28a99c"
+                  class="text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 btn-primary"
+                >
+                  Get Free Audit
+                </button>
+              </a>
+              <a href="demo.html">
+                <button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8"
+                >
+                  Schedule Demo
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-[#0B1E3F] text-white">
+        <div class="container mx-auto px-4 py-16">
+          <!-- Call-to-Action Box -->
+          <div class="text-center mb-16 py-12 bg-slate-800/20 rounded-2xl">
+            <h3 class="text-3xl font-bold mb-4">Ready to Transform Your Debt Operations?</h3>
+            <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+              Get started with a free technology audit and see how we can help you
+              scale compliant, efficient operations.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="contact.html">
+                <button
+                  class="h-11 px-8 rounded-md bg-emerald hover:bg-emerald/90 text-white font-medium transition">
+                  Get Free Audit
+                </button>
+              </a>
+              <a href="demo.html">
+                <button
+                  class="h-11 px-8 rounded-md border border-white text-white hover:bg-white hover:text-navy font-medium transition">
+                  Schedule Demo
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="border-t border-white/20 pt-12 pb-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-12">
+              <!-- Brand Info -->
+              <div class="lg:col-span-2">
+                <a href="index.html">
+                  <img src="../assets/img/logo.png" alt="debtdev logo" class="h-12 mb-4 bg-white p-2 rounded-md inline-block">
+                </a>
+                <p class="text-white/80 mb-6 leading-relaxed">
+                  A fintech engineering studio focused on debt, credit, and
+                  consolidation solutions. We help businesses launch compliant,
+                  scalable operations in weeks, not months.
+                </p>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span class="text-white/80">+1-949-508-0399</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    <span class="text-white/80">hello@debtdev.com</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Solutions -->
+              <div>
+                <h4 class="font-semibold mb-4">Solutions</h4>
+                <ul class="space-y-2">
+                  <li><a href="solutions-lenders.html" class="text-white/80 hover:text-white">For Lenders</a></li>
+                  <li><a href="solutions-debt-consultants.html" class="text-white/80 hover:text-white">For Debt Consultants</a></li>
+                  <li><a href="solutions-call-centers.html" class="text-white/80 hover:text-white">For Call Centers</a></li>
+                  <li><a href="solutions-lead-generators.html" class="text-white/80 hover:text-white">For Lead Generators</a></li>
+                </ul>
+              </div>
+
+              <!-- Products -->
+              <div>
+                <h4 class="font-semibold mb-4">Products</h4>
+                <ul class="space-y-2">
+                  <li><a href="eligibility-calculator.html" class="text-white/80 hover:text-white">Eligibility Calculator</a></li>
+                  <li><a href="agent-desktop.html" class="text-white/80 hover:text-white">Agent Desktop</a></li>
+                  <li><a href="compliance-toolkit.html" class="text-white/80 hover:text-white">Compliance Toolkit</a></li>
+                  <li><a href="analytics-dashboards.html" class="text-white/80 hover:text-white">Analytics Boards</a></li>
+                </ul>
+              </div>
+
+              <!-- Resources -->
+              <div>
+                <h4 class="font-semibold mb-4">Resources</h4>
+                <ul class="space-y-2">
+                  <li><a href="case-studies.html" class="text-white hover:text-white">Case Studies</a></li>
+                  <li><a href="blog.html" class="text-white/80 hover:text-white">Blog</a></li>
+                  <li><a href="webinars.html" class="text-white/80 hover:text-white">Webinars</a></li>
+                  <li><a href="playbooks.html" class="text-white/80 hover:text-white">Playbooks</a></li>
+                </ul>
+              </div>
+
+              <!-- Company -->
+              <div>
+                <h4 class="font-semibold mb-4">Company</h4>
+                <ul class="space-y-2">
+                  <li><a href="about.html" class="text-white/80 hover:text-white">About Us</a></li>
+                  <li><a href="careers.html" class="text-white/80 hover:text-white">Careers</a></li>
+                  <li><a href="contact.html" class="text-white/80 hover:text-white">Contact</a></li>
+                  <li><a href="privacy.html" class="text-white/80 hover:text-white">Privacy Policy</a></li>
+                </ul>
+              </div>  
+            </div>
+          </div>
+
+          <div class="flex space-x-4 justify-center mt-6">
+            <!-- Facebook -->
+            <a href="https://facebook.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <rect width="20" height="20" x="2" y="2" rx="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://youtube.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.94C18.88 4.08 12 4 12 4s-6.88.08-8.6.48a2.78 2.78 0 0 0-1.94 1.94C1 8.14 1 12 1 12s0 3.86.46 5.58a2.78 2.78 0 0 0 1.94 1.94C5.12 19.92 12 20 12 20s6.88-.08 8.6-.48a2.78 2.78 0 0 0 1.94-1.94C23 15.86 23 12 23 12s0-3.86-.46-5.58z"/>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/company/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+
+            <!-- Twitter -->
+            <a href="https://twitter.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Social + Disclaimer -->
+          <div class="mt-12 border-white/20 pt-8">
+            <div class="flex justify-between items-center gap-6">
+              <p class="text-xs text-white/60 leading-relaxed whitespace-nowrap">
+                <strong>Important:</strong> DebtDev provides technology solutions and does not provide financial advice. 
+                All financial decisions should be made in consultation with qualified professionals. 
+                TCPA compliance is the responsibility of the end user.
+              </p>
+            </div>
+          </div>
+
+          <!-- Copyright Line -->
+          <div class="mt-8 border-t border-white/20 pt-6 text-center">
+            <p class="text-sm text-white/60">
+              © 2025 DebtDev. All rights reserved. |
+              <a href="privacy.html" class="hover:text-white">Privacy Policy</a> |
+              <a href="terms.html" class="hover:text-white">Terms of Service</a>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // Mobile menu functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !mobileMenu.contains(event.target) &&
+            !mobileMenuButton.contains(event.target)
+          ) {
+            mobileMenu.classList.remove("active");
+          }
+        });
+
+        // Sticky navigation
+        const navbar = document.querySelector(".navbar-sticky");
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 100,
+                behavior: "smooth",
+              });
+
+              // Close mobile menu if open
+              mobileMenu.classList.remove("active");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

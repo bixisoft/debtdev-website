@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DebtDev integrates with your existing tools: Salesforce, HubSpot, Five9, Twilio, Stripe, and 20+ more platforms for seamless debt operations."
+    />
+    <meta name="author" content="DebtDev" />
+    <meta name="theme-color" content="#0B1B2B" />
+    <title>Integrations | DebtDev - Connect Your Debt & Credit Tech Stack</title>
+    <meta
+      property="og:title"
+      content="Integrations — DebtDev Platform Connectivity"
+    />
+    <meta
+      property="og:description"
+      content="Seamlessly connect DebtDev with your CRM, dialer, payment processors, and analytics tools."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://debtdev.com/integrations.html" />
+    <meta property="og:image" content="assets/img/og-placeholder.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Animate.css for smooth animations -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- AOS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Hover.css for button effects -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Custom styles for better UI */
+      .navbar-sticky {
+        transition: all 0.3s ease-in-out;
+      }
+
+      .navbar-sticky.scrolled {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: white;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+      }
+
+      .mobile-menu.active {
+        max-height: 300px;
+      }
+
+      .integrations-hero {
+        background-image: linear-gradient(
+            135deg,
+            rgba(11, 27, 43, 0.9),
+            rgba(46, 58, 70, 0.8)
+          ),
+          url(https://debt-dev-launchpad.lovable.app/assets/hero-bg-CG_0uEu6.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+
+      .integration-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .integration-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .integration-logo {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .integration-logo img {
+        max-height: 50px;
+        max-width: 150px;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+      }
+
+      .integration-card:hover .integration-logo img {
+        filter: grayscale(0%);
+      }
+
+      .integration-category {
+        border-left: 4px solid #28a99c;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root">
+      <div
+        role="region"
+        aria-label="Notifications (F8)"
+        tabindex="-1"
+        style="pointer-events: none"
+      >
+        <ol
+          tabindex="-1"
+          class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"
+        ></ol>
+      </div>
+    </div>
+
+    <section
+      aria-label="Notifications alt+T"
+      tabindex="-1"
+      aria-live="polite"
+      aria-relevant="additions text"
+      aria-atomic="false"
+    ></section>
+
+    <div class="min-h-screen bg-background">
+      <!-- Navigation -->
+      <nav
+        class="navbar-sticky fixed w-full top-0 left-0 z-50 bg-white shadow-sm"
+      >
+        <div class="container mx-auto px-4">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+              <a href="index.html">
+                <img
+                  src="../assets/img/logo.png"
+                  alt="DebtDev Logo"
+                  class="h-12 w-auto"
+                />
+              </a>
+            </div>
+
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-center space-x-8">
+                <a
+                  href="solutions.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Solutions</a
+                >
+                <a
+                  href="products.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Products</a
+                >
+                <a
+                  href="case-studies.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Case Studies</a
+                >
+                <a
+                  href="integrations.html"
+                  class="text-navy hover:text-navy transition-colors duration-200 font-medium"
+                  >Integrations</a
+                >
+                <a
+                  href="resources.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Resources</a
+                >
+                <a
+                  href="about.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >About</a
+                >
+              </div>
+            </div>
+
+            <div class="hidden md:block">
+              <a href="contact.html">
+                <button
+                  style="background-color: #28a99c"
+                  class="text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 btn-primary"
+                >
+                  Get Free Audit
+                </button>
+              </a>
+            </div>
+
+            <div class="md:hidden">
+              <button
+                id="mobile-menu-button"
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 text-navy"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-menu"
+                >
+                  <line x1="4" x2="20" y1="12" y2="12"></line>
+                  <line x1="4" x2="20" y1="6" y2="6"></line>
+                  <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile Menu -->
+          <div id="mobile-menu" class="mobile-menu md:hidden">
+            <div class="py-4 space-y-4">
+              <a
+                href="solutions.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Solutions</a
+              >
+              <a
+                href="products.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Products</a
+              >
+              <a
+                href="case-studies.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Case Studies</a
+              >
+              <a
+                href="integrations.html"
+                class="block text-navy hover:text-navy transition-colors duration-200 font-medium"
+                >Integrations</a
+              >
+              <a
+                href="resources.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Resources</a
+              >
+              <a
+                href="about.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >About</a
+              >
+              <a href="contact.html">
+                <button
+                  style="background-color: #28a99c"
+                  class="text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 btn-primary w-full"
+                >
+                  Get Free Audit
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="integrations-hero min-h-[60vh] flex items-center py-20 relative">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-4xl mx-auto text-center">
+            <div class="animate-fade-in-up">
+              <h1
+                class="text-4xl text-white md:text-5xl font-bold mb-6 leading-tight"
+              >
+                Connect Your Entire Debt Tech Stack
+              </h1>
+              <p
+                class="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed"
+              >
+                Seamlessly integrate DebtDev with your CRM, dialer, payment processors, and analytics tools for a unified operations platform.
+              </p>
+            </div>
+
+            <div
+              class="animate-fade-in flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <a href="contact.html">
+                <button
+                  style="background-color: #28a99c"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 btn-hero"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-plug mr-2 h-5 w-5"
+                  >
+                    <path d="M12 22v-5"></path>
+                    <path d="M9 8V2"></path>
+                    <path d="M15 8V2"></path>
+                    <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"></path>
+                  </svg>
+                  Request Integration Setup
+                </button>
+              </a>
+
+              <a href="demo.html">
+                <button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border h-11 rounded-md px-8 btn-outline-primary bg-white/10 border-white/30 text-white hover:bg-black hover:text-white"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-play mr-2 h-5 w-5"
+                  >
+                    <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                  </svg>
+                  Watch Integration Demo
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Integration Categories -->
+      <section class="py-20 bg-background">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-navy mb-4">
+              Complete Integration Ecosystem
+            </h2>
+            <p class="text-xl text-steel max-w-3xl mx-auto">
+              Connect DebtDev with the tools your team already uses for seamless data flow and operational efficiency.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <!-- CRM Integrations -->
+            <div class="integration-category bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up">
+              <div class="flex items-center mb-4">
+                <div class="w-10 h-10 bg-emerald/10 rounded-lg flex items-center justify-center mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users text-emerald">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <h3 class="font-bold text-navy text-lg">CRM Platforms</h3>
+              </div>
+              <p class="text-steel mb-4">Sync client data, lead information, and communication history with your CRM.</p>
+              <ul class="space-y-2">
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Salesforce
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  HubSpot
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Zoho CRM
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Freshworks
+                </li>
+              </ul>
+            </div>
+
+            <!-- Dialer & Communication -->
+            <div class="integration-category bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+              <div class="flex items-center mb-4">
+                <div class="w-10 h-10 bg-emerald/10 rounded-lg flex items-center justify-center mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone text-emerald">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <h3 class="font-bold text-navy text-lg">Dialers & Communication</h3>
+              </div>
+              <p class="text-steel mb-4">Connect with your telephony systems for seamless calling and SMS communications.</p>
+              <ul class="space-y-2">
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Five9
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Twilio
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Aircall
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  RingCentral
+                </li>
+              </ul>
+            </div>
+
+            <!-- Payment Processors -->
+            <div class="integration-category bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+              <div class="flex items-center mb-4">
+                <div class="w-10 h-10 bg-emerald/10 rounded-lg flex items-center justify-center mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card text-emerald">
+                    <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                    <line x1="2" x2="22" y1="10" y2="10"></line>
+                  </svg>
+                </div>
+                <h3 class="font-bold text-navy text-lg">Payment Processors</h3>
+              </div>
+              <p class="text-steel mb-4">Securely process payments and manage financial transactions with PCI compliance.</p>
+              <ul class="space-y-2">
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Stripe
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  PayPal
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Authorize.net
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Square
+                </li>
+              </ul>
+            </div>
+
+            <!-- Analytics & BI -->
+            <div class="integration-category bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
+              <div class="flex items-center mb-4">
+                <div class="w-10 h-10 bg-emerald/10 rounded-lg flex items-center justify-center mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart text-emerald">
+                    <line x1="12" x2="12" y1="20" y2="10"></line>
+                    <line x1="18" x2="18" y1="20" y2="4"></line>
+                    <line x1="6" x2="6" y1="20" y2="16"></line>
+                  </svg>
+                </div>
+                <h3 class="font-bold text-navy text-lg">Analytics & BI</h3>
+              </div>
+              <p class="text-steel mb-4">Export data to your preferred analytics platforms for advanced reporting and insights.</p>
+              <ul class="space-y-2">
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Google Analytics
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Tableau
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Power BI
+                </li>
+                <li class="flex items-center text-sm text-steel">
+                  <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                  Looker
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Integrations -->
+      <section class="py-20 bg-muted/30">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-navy mb-4">
+              Featured Integrations
+            </h2>
+            <p class="text-xl text-steel max-w-3xl mx-auto">
+              Deep integrations with the platforms that power your debt and credit operations
+            </p>
+          </div>
+
+          <div class="max-w-6xl mx-auto">
+            <!-- Salesforce Integration -->
+            <div class="bg-white rounded-xl shadow-sm p-8 mb-12 integration-card" data-aos="fade-up">
+              <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/3">
+                  <div class="integration-logo">
+                    <img src="../assets/img/logo/sf.png" alt="Salesforce Logo">
+                  </div>
+                  <div class="bg-muted/10 rounded-lg p-4">
+                    <h4 class="font-semibold text-navy mb-2">Integration Details</h4>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span class="text-steel">Type:</span>
+                        <span class="font-medium">Bidirectional Sync</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-steel">Setup Time:</span>
+                        <span class="font-medium">2-3 days</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-steel">API:</span>
+                        <span class="font-medium">REST</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="md:w-2/3">
+                  <div class="flex items-center mb-4">
+                    <span class="px-3 py-1 bg-emerald/10 text-emerald text-sm font-medium rounded-full mr-4">CRM</span>
+                    <span class="text-sm text-steel">Most Popular Integration</span>
+                  </div>
+                  
+                  <h3 class="text-2xl font-bold text-navy mb-4">Salesforce Integration</h3>
+                  
+                  <p class="text-steel mb-6">
+                    Seamlessly sync lead data, client information, and communication history between DebtDev and Salesforce. Automate lead routing, track campaign performance, and maintain a single source of truth for all client interactions.
+                  </p>
+                  
+                  <h4 class="text-xl font-semibold text-navy mb-3">Key Features</h4>
+                  <ul class="text-steel mb-6 grid md:grid-cols-2 gap-2">
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      Real-time lead synchronization
+                    </li>
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      Automated task creation
+                    </li>
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      Campaign attribution tracking
+                    </li>
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      Custom object mapping
+                    </li>
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      Opportunity stage tracking
+                    </li>
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      Compliance consent logging
+                    </li>
+                  </ul>
+                  
+                  <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="contact.html">
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-6"
+                        style="background-color: #28a99c; color: white"
+                      >
+                        Setup This Integration
+                      </button>
+                    </a>
+                    <a href="integration-salesforce.html">
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-6"
+                      >
+                        View Documentation
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Five9 Integration -->
+            <div class="bg-white rounded-xl shadow-sm p-8 mb-12 integration-card" data-aos="fade-up">
+              <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/3">
+                  <div class="integration-logo">
+                    <img src="../assets/img/logo/f9.png" alt="Five9 Logo">
+                  </div>
+                  <div class="bg-muted/10 rounded-lg p-4">
+                    <h4 class="font-semibold text-navy mb-2">Integration Details</h4>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span class="text-steel">Type:</span>
+                        <span class="font-medium">CTI Integration</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-steel">Setup Time:</span>
+                        <span class="font-medium">3-5 days</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-steel">API:</span>
+                        <span class="font-medium">REST & WebSocket</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="md:w-2/3">
+                  <div class="flex items-center mb-4">
+                    <span class="px-3 py-1 bg-emerald/10 text-emerald text-sm font-medium rounded-full mr-4">Dialer</span>
+                    <span class="text-sm text-steel">Enterprise Telephony</span>
+                  </div>
+                  
+                  <h3 class="text-2xl font-bold text-navy mb-4">Five9 Integration</h3>
+                  
+                  <p class="text-steel mb-6">
+                    Connect DebtDev with Five9 for complete call center functionality. Screen pop with client data, automatically log calls, track agent performance, and maintain TCPA compliance with integrated consent management.
+                  </p>
+                  
+                  <h4 class="text-xl font-semibold text-navy mb-3">Key Features</h4>
+                  <ul class="text-steel mb-6 grid md:grid-cols-2 gap-2">
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      Intelligent screen pops
+                    </li>
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      Automatic call logging
+                    </li>
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      Click-to-dial functionality
+                    </li>
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      Real-time agent monitoring
+                    </li>
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      DNC list synchronization
+                    </li>
+                    <li class="flex items-center">
+                      <div class="w-2 h-2 bg-emerald rounded-full mr-3"></div>
+                      Call recording integration
+                    </li>
+                  </ul>
+                  
+                  <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="contact.html">
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-6"
+                        style="background-color: #28a99c; color: white"
+                      >
+                        Setup This Integration
+                      </button>
+                    </a>
+                    <a href="integration-five9.html">
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-6"
+                      >
+                        View Documentation
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- All Integrations Grid -->
+      <section class="py-20 bg-background">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-navy mb-4">
+              Complete Integration Directory
+            </h2>
+            <p class="text-xl text-steel max-w-3xl mx-auto">
+              Browse our full catalog of supported integrations across all categories
+            </p>
+          </div>
+
+          <div class="max-w-7xl mx-auto">
+            <!-- Integration Filter -->
+            <div class="flex flex-wrap gap-2 justify-center mb-12">
+              <button class="px-4 py-2 bg-emerald text-white rounded-full text-sm font-medium">All Integrations</button>
+              <button class="px-4 py-2 bg-muted/30 text-steel rounded-full text-sm font-medium hover:bg-emerald/10 hover:text-emerald">CRM</button>
+              <button class="px-4 py-2 bg-muted/30 text-steel rounded-full text-sm font-medium hover:bg-emerald/10 hover:text-emerald">Dialers</button>
+              <button class="px-4 py-2 bg-muted/30 text-steel rounded-full text-sm font-medium hover:bg-emerald/10 hover:text-emerald">Payments</button>
+              <button class="px-4 py-2 bg-muted/30 text-steel rounded-full text-sm font-medium hover:bg-emerald/10 hover:text-emerald">Analytics</button>
+              <button class="px-4 py-2 bg-muted/30 text-steel rounded-full text-sm font-medium hover:bg-emerald/10 hover:text-emerald">Marketing</button>
+            </div>
+
+            <!-- Integrations Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              <!-- Integration Item -->
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/sf.png" alt="Salesforce Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Salesforce</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">CRM</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/hs.png" alt="HubSpot Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">HubSpot</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">CRM</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/f9.png" alt="Five9 Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Five9</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Dialer</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/tw.png" alt="Twilio Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Twilio</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Communications</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/st.png" alt="Stripe Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Stripe</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Payments</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/pl.png" alt="Plaid Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Plaid</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Financial Data</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/zd.png" alt="Zendesk Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Zendesk</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Support</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/fd.png" alt="Freshdesk Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Freshdesk</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Support</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/ga.png" alt="Google Analytics Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Google Analytics</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Analytics</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/ms.png" alt="Microsoft Power BI Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Power BI</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Analytics</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/mi.png" alt="Mailchimp Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Mailchimp</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Marketing</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/kl.png" alt="Klaviyo Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Klaviyo</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Marketing</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/sl.png" alt="Slack Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Slack</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Communication</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/ms-teams.png" alt="Microsoft Teams Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">Microsoft Teams</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Communication</span>
+              </div>
+
+              <div class="bg-white rounded-lg border border-gray-200 p-4 text-center integration-card">
+                <div class="integration-logo">
+                  <img src="../assets/img/logo/quickbooks.png" alt="QuickBooks Logo">
+                </div>
+                <h4 class="font-medium text-navy mb-1">QuickBooks</h4>
+                <span class="text-xs text-steel bg-muted/30 px-2 py-1 rounded-full">Accounting</span>
+              </div>
+            </div>
+
+            <div class="text-center mt-12">
+              <p class="text-steel mb-6">Don't see the integration you need?</p>
+              <a href="contact.html">
+                <button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8"
+                >
+                  Request Custom Integration
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Integration Process -->
+      <section class="py-20 bg-muted/30">
+        <div class="container mx-auto px-4">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+              <h2 class="text-4xl font-bold text-navy mb-4">
+                Simple Integration Process
+              </h2>
+              <p class="text-xl text-steel max-w-3xl mx-auto">
+                Get your integrations up and running quickly with our streamlined setup process
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+              <div class="text-center" data-aos="fade-up">
+                <div class="w-16 h-16 bg-emerald text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+                <h3 class="font-bold text-navy text-xl mb-3">Consultation & Planning</h3>
+                <p class="text-steel">
+                  We analyze your current tech stack and business processes to design the optimal integration strategy.
+                </p>
+              </div>
+
+              <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 bg-emerald text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+                <h3 class="font-bold text-navy text-xl mb-3">Configuration & Testing</h3>
+                <p class="text-steel">
+                  Our team configures the integration in a sandbox environment and performs thorough testing.
+                </p>
+              </div>
+
+              <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-emerald text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+                <h3 class="font-bold text-navy text-xl mb-3">Deployment & Training</h3>
+                <p class="text-steel">
+                  We deploy the integration to your live environment and provide comprehensive training for your team.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm p-8 mt-12 text-center" data-aos="fade-up">
+              <h3 class="text-2xl font-bold text-navy mb-4">Ready to Connect Your Systems?</h3>
+              <p class="text-steel mb-6 max-w-2xl mx-auto">
+                Schedule a free integration consultation to discuss your specific needs and get a customized implementation plan.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html">
+                  <button
+                    style="background-color: #28a99c"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8"
+                  >
+                    Schedule Consultation
+                  </button>
+                </a>
+                <a href="demo.html">
+                  <button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8"
+                  >
+                    View Integration Demo
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-[#0B1E3F] text-white">
+        <div class="container mx-auto px-4 py-16">
+          <!-- Call-to-Action Box -->
+          <div class="text-center mb-16 py-12 bg-slate-800/20 rounded-2xl">
+            <h3 class="text-3xl font-bold mb-4">Ready to Connect Your Systems?</h3>
+            <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+              Get started with a free integration consultation and see how we can connect your existing tools with DebtDev.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="contact.html">
+                <button
+                  class="h-11 px-8 rounded-md bg-emerald hover:bg-emerald/90 text-white font-medium transition">
+                  Get Free Consultation
+                </button>
+              </a>
+              <a href="demo.html">
+                <button
+                  class="h-11 px-8 rounded-md border border-white text-white hover:bg-white hover:text-navy font-medium transition">
+                  Schedule Demo
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="border-t border-white/20 pt-12 pb-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-12">
+              <!-- Brand Info -->
+              <div class="lg:col-span-2">
+                <a href="index.html">
+                  <img src="../assets/img/logo.png" alt="debtdev logo" class="h-12 mb-4 bg-white p-2 rounded-md inline-block">
+                </a>
+                <p class="text-white/80 mb-6 leading-relaxed">
+                  A fintech engineering studio focused on debt, credit, and
+                  consolidation solutions. We help businesses launch compliant,
+                  scalable operations in weeks, not months.
+                </p>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span class="text-white/80">+1-949-508-0399</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    <span class="text-white/80">hello@debtdev.com</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Solutions -->
+              <div>
+                <h4 class="font-semibold mb-4">Solutions</h4>
+                <ul class="space-y-2">
+                  <li><a href="solutions-lenders.html" class="text-white/80 hover:text-white">For Lenders</a></li>
+                  <li><a href="solutions-debt-consultants.html" class="text-white/80 hover:text-white">For Debt Consultants</a></li>
+                  <li><a href="solutions-call-centers.html" class="text-white/80 hover:text-white">For Call Centers</a></li>
+                  <li><a href="solutions-lead-generators.html" class="text-white/80 hover:text-white">For Lead Generators</a></li>
+                </ul>
+              </div>
+
+              <!-- Products -->
+              <div>
+                <h4 class="font-semibold mb-4">Products</h4>
+                <ul class="space-y-2">
+                  <li><a href="eligibility-calculator.html" class="text-white/80 hover:text-white">Eligibility Calculator</a></li>
+                  <li><a href="agent-desktop.html" class="text-white/80 hover:text-white">Agent Desktop</a></li>
+                  <li><a href="compliance-toolkit.html" class="text-white/80 hover:text-white">Compliance Toolkit</a></li>
+                  <li><a href="analytics-dashboards.html" class="text-white/80 hover:text-white">Analytics Boards</a></li>
+                </ul>
+              </div>
+
+              <!-- Resources -->
+              <div>
+                <h4 class="font-semibold mb-4">Resources</h4>
+                <ul class="space-y-2">
+                  <li><a href="case-studies.html" class="text-white/80 hover:text-white">Case Studies</a></li>
+                  <li><a href="blog.html" class="text-white/80 hover:text-white">Blog</a></li>
+                  <li><a href="integrations.html" class="text-white hover:text-white">Integrations</a></li>
+                  <li><a href="playbooks.html" class="text-white/80 hover:text-white">Playbooks</a></li>
+                </ul>
+              </div>
+
+              <!-- Company -->
+              <div>
+                <h4 class="font-semibold mb-4">Company</h4>
+                <ul class="space-y-2">
+                  <li><a href="about.html" class="text-white/80 hover:text-white">About Us</a></li>
+                  <li><a href="careers.html" class="text-white/80 hover:text-white">Careers</a></li>
+                  <li><a href="contact.html" class="text-white/80 hover:text-white">Contact</a></li>
+                  <li><a href="privacy.html" class="text-white/80 hover:text-white">Privacy Policy</a></li>
+                </ul>
+              </div>  
+            </div>
+          </div>
+
+          <div class="flex space-x-4 justify-center mt-6">
+            <!-- Facebook -->
+            <a href="https://facebook.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <rect width="20" height="20" x="2" y="2" rx="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://youtube.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.94C18.88 4.08 12 4 12 4s-6.88.08-8.6.48a2.78 2.78 0 0 0-1.94 1.94C1 8.14 1 12 1 12s0 3.86.46 5.58a2.78 2.78 0 0 0 1.94 1.94C5.12 19.92 12 20 12 20s6.88-.08 8.6-.48a2.78 2.78 0 0 0 1.94-1.94C23 15.86 23 12 23 12s0-3.86-.46-5.58z"/>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/company/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+
+            <!-- Twitter -->
+            <a href="https://twitter.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Social + Disclaimer -->
+          <div class="mt-12 border-white/20 pt-8">
+            <div class="flex justify-between items-center gap-6">
+              <p class="text-xs text-white/60 leading-relaxed whitespace-nowrap">
+                <strong>Important:</strong> DebtDev provides technology solutions and does not provide financial advice. 
+                All financial decisions should be made in consultation with qualified professionals. 
+                TCPA compliance is the responsibility of the end user.
+              </p>
+            </div>
+          </div>
+
+          <!-- Copyright Line -->
+          <div class="mt-8 border-t border-white/20 pt-6 text-center">
+            <p class="text-sm text-white/60">
+              © 2025 DebtDev. All rights reserved. |
+              <a href="privacy.html" class="hover:text-white">Privacy Policy</a> |
+              <a href="terms.html" class="hover:text-white">Terms of Service</a>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // Mobile menu functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !mobileMenu.contains(event.target) &&
+            !mobileMenuButton.contains(event.target)
+          ) {
+            mobileMenu.classList.remove("active");
+          }
+        });
+
+        // Sticky navigation
+        const navbar = document.querySelector(".navbar-sticky");
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+
+        // Integration filter functionality
+        const filterButtons = document.querySelectorAll('.flex-wrap button');
+        filterButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => {
+              btn.classList.remove('bg-emerald', 'text-white');
+              btn.classList.add('bg-muted/30', 'text-steel', 'hover:bg-emerald/10', 'hover:text-emerald');
+            });
+            
+            // Add active class to clicked button
+            this.classList.remove('bg-muted/30', 'text-steel', 'hover:bg-emerald/10', 'hover:text-emerald');
+            this.classList.add('bg-emerald', 'text-white');
+            
+            // In a real implementation, you would filter the integration cards here
+            // For this demo, we'll just show an alert
+            if(this.textContent !== 'All Integrations') {
+              alert(`Filtering by: ${this.textContent}`);
+            }
+          });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 100,
+                behavior: "smooth",
+              });
+
+              // Close mobile menu if open
+              mobileMenu.classList.remove("active");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

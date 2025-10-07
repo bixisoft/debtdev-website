@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DebtDev Terms of Service - Legal terms governing the use of our fintech solutions for debt consolidation."
+    />
+    <meta name="author" content="DebtDev" />
+    <meta name="theme-color" content="#0B1B2B" />
+    <title>Terms of Service | DebtDev</title>
+    <meta
+      property="og:title"
+      content="Terms of Service — DebtDev"
+    />
+    <meta
+      property="og:description"
+      content="Legal terms governing the use of DebtDev's fintech solutions."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://debtdev.com/terms.html" />
+    <meta property="og:image" content="assets/img/og-placeholder.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Animate.css for smooth animations -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- AOS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Hover.css for button effects -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DebtDev",
+        "url": "https://debtdev.com/",
+        "logo": "https://debtdev.com/assets/img/logo.svg",
+        "sameAs": []
+      }
+    </script>
+
+    <style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Custom styles for better UI */
+      .navbar-sticky {
+        transition: all 0.3s ease-in-out;
+      }
+
+      .navbar-sticky.scrolled {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: white;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+      }
+
+      .mobile-menu.active {
+        max-height: 300px;
+      }
+      
+      .terms-content h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #0B1B2B;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      .terms-content h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #0B1B2B;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .terms-content p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      
+      .terms-content ul, .terms-content ol {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+      }
+      
+      .terms-content li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+      }
+      
+      .terms-content a {
+        color: #28a99c;
+        text-decoration: underline;
+      }
+      
+      .terms-content a:hover {
+        color: #1e8a7e;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root">
+      <div
+        role="region"
+        aria-label="Notifications (F8)"
+        tabindex="-1"
+        style="pointer-events: none"
+      >
+        <ol
+          tabindex="-1"
+          class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"
+        ></ol>
+      </div>
+    </div>
+
+    <section
+      aria-label="Notifications alt+T"
+      tabindex="-1"
+      aria-live="polite"
+      aria-relevant="additions text"
+      aria-atomic="false"
+    ></section>
+
+    <div class="min-h-screen bg-background">
+      <!-- Navigation -->
+      <nav
+        class="navbar-sticky fixed w-full top-0 left-0 z-50 bg-white shadow-sm"
+      >
+        <div class="container mx-auto px-4">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+              <a href="index.html">
+                <img
+                  src="../assets/img/logo.png"
+                  alt="DebtDev Logo"
+                  class="h-12 w-auto"
+                />
+              </a>
+            </div>
+
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-center space-x-8">
+                <a
+                  href="index.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Home</a
+                >
+                <a
+                  href="solutions.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Solutions</a
+                >
+                <a
+                  href="products.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Products</a
+                >
+                <a
+                  href="case-studies.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Case Studies</a
+                >
+                <a
+                  href="integrations.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Integrations</a
+                >
+                <a
+                  href="resources.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >Resources</a
+                >
+                <a
+                  href="about.html"
+                  class="text-steel hover:text-navy transition-colors duration-200 font-medium"
+                  >About</a
+                >
+                 
+              </div>
+            </div>
+
+            <div class="hidden md:block">
+              <a href="contact.html">
+                <button
+                  style="background-color: #28a99c"
+                  class="text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 btn-primary"
+                >
+                  Get Free Audit
+                </button>
+              </a>
+            </div>
+
+            <div class="md:hidden">
+              <button
+                id="mobile-menu-button"
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 text-navy"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-menu"
+                >
+                  <line x1="4" x2="20" y1="12" y2="12"></line>
+                  <line x1="4" x2="20" y1="6" y2="6"></line>
+                  <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile Menu -->
+          <div id="mobile-menu" class="mobile-menu md:hidden">
+            <div class="py-4 space-y-4">
+              <a
+                href="solutions.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Solutions</a
+              >
+              <a
+                href="products.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Products</a
+              >
+              <a
+                href="case-studies.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Case Studies</a
+              >
+              <a
+                href="integrations.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Integrations</a
+              >
+              <a
+                href="resources.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >Resources</a
+              >
+              <a
+                href="about.html"
+                class="block text-steel hover:text-navy transition-colors duration-200 font-medium"
+                >About</a
+              >
+              <a href="contact.html">
+                <button
+                  style="background-color: #28a99c"
+                  class="text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 btn-primary w-full"
+                >
+                  Get Free Audit
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Page Header -->
+      <section class="hero-section pt-32 pb-20 relative"
+        style="
+          background-image: linear-gradient(
+              135deg,
+              rgba(11, 27, 43, 0.9),
+              rgba(46, 58, 70, 0.8)
+            ),
+            url(https://debt-dev-launchpad.lovable.app/assets/hero-bg-CG_0uEu6.jpg);
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
+        ">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-navy mb-4 text-white">
+              Terms of Service
+            </h1>
+            <p class="text-xl text-steel max-w-3xl mx-auto text-white">
+              Last updated: January 1, 2025
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Terms Content -->
+      <section class="py-16 bg-background">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto">
+            <div class="terms-content bg-white rounded-lg border shadow-sm p-8">
+              <div class="mb-8">
+                <p class="text-steel">
+                  Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the https://debtdev.com website and the DebtDev services (the "Service") operated by DebtDev ("us", "we", or "our").
+                </p>
+                <p class="text-steel">
+                  Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
+                </p>
+                <p class="text-steel">
+                  By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.
+                </p>
+              </div>
+
+              <h2>1. Accounts</h2>
+              <p>When you create an account with us, you must provide us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service.</p>
+              <p>You are responsible for safeguarding the password that you use to access the Service and for any activities or actions under your password, whether your password is with our Service or a third-party service.</p>
+              <p>You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
+
+              <h2>2. Intellectual Property</h2>
+              <p>The Service and its original content, features and functionality are and will remain the exclusive property of DebtDev and its licensors. The Service is protected by copyright, trademark, and other laws of both the United States and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of DebtDev.</p>
+
+              <h2>3. Links To Other Web Sites</h2>
+              <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by DebtDev.</p>
+              <p>DebtDev has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that DebtDev shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
+              <p>We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.</p>
+
+              <h2>4. Termination</h2>
+              <p>We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+              <p>Upon termination, your right to use the Service will immediately cease. If you wish to terminate your account, you may simply discontinue using the Service.</p>
+
+              <h2>5. Limitation of Liability</h2>
+              <p>In no event shall DebtDev, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.</p>
+
+              <h2>6. Disclaimer</h2>
+              <p>Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.</p>
+              <p>DebtDev its subsidiaries, affiliates, and its licensors do not warrant that a) the Service will function uninterrupted, secure or available at any particular time or location; b) any errors or defects will be corrected; c) the Service is free of viruses or other harmful components; or d) the results of using the Service will meet your requirements.</p>
+
+              <h2>7. Governing Law</h2>
+              <p>These Terms shall be governed and construed in accordance with the laws of California, United States, without regard to its conflict of law provisions.</p>
+              <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have between us regarding the Service.</p>
+
+              <h2>8. Changes</h2>
+              <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+              <p>By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
+
+              <h2>9. Contact Us</h2>
+              <p>If you have any questions about these Terms, please contact us:</p>
+              <ul>
+                <li>By email: legal@debtdev.com</li>
+                <li>By phone: +1-949-508-0399</li>
+                <li>By mail: 123 Technology Drive, Suite 100, Irvine, CA 92618</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-[#0B1E3F] text-white">
+        <div class="container mx-auto px-4 py-16">
+          <!-- Call-to-Action Box -->
+          <div class="text-center mb-16 py-12 bg-slate-800/20 rounded-2xl">
+            <h3 class="text-3xl font-bold mb-4">Ready to Transform Your Debt Operations?</h3>
+            <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+              Get started with a free technology audit and see how we can help you
+              scale compliant, efficient operations.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="contact.html">
+                <button
+                  class="h-11 px-8 rounded-md bg-emerald hover:bg-emerald/90 text-white font-medium transition">
+                  Get Free Audit
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="border-t border-white/20 pt-12 pb-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-12">
+              <!-- Brand Info -->
+              <div class="lg:col-span-2">
+                <a href="index.html">
+                  <img src="../assets/img/logo.png" alt="debtdev logo" class="h-12 mb-4 bg-white p-2 rounded-md inline-block">
+                </a>
+                <p class="text-white/80 mb-6 leading-relaxed">
+                  A fintech engineering studio focused on debt, credit, and
+                  consolidation solutions. We help businesses launch compliant,
+                  scalable operations in weeks, not months.
+                </p>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span class="text-white/80">+1-949-508-0399</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    <span class="text-white/80">hello@debtdev.com</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Solutions -->
+              <div>
+                <h4 class="font-semibold mb-4">Solutions</h4>
+                <ul class="space-y-2">
+                  <li><a  class="text-white/80 hover:text-white">For Lenders</a></li>
+                  <li><a  class="text-white/80 hover:text-white">For Debt Consultants</a></li>
+                  <li><a  class="text-white/80 hover:text-white">For Call Centers</a></li>
+                  <li><a  class="text-white/80 hover:text-white">For Lead Generators</a></li>
+                </ul>
+              </div>
+
+              <!-- Products -->
+              <div>
+                <h4 class="font-semibold mb-4">Products</h4>
+                <ul class="space-y-2">
+                  <li><a  class="text-white/80 hover:text-white">Eligibility Calculator</a></li>
+                  <li><a  class="text-white/80 hover:text-white">Agent Desktop</a></li>
+                  <li><a  class="text-white/80 hover:text-white">Compliance Toolkit</a></li>
+                  <li><a  class="text-white/80 hover:text-white">Analytics Boards</a></li>
+                </ul>
+              </div>
+
+              <!-- Resources -->
+              <div>
+                <h4 class="font-semibold mb-4">Resources</h4>
+                <ul class="space-y-2">
+                  <li><a href="case-studies.html" class="text-white/80 hover:text-white">Case Studies</a></li>
+                  <li><a href="blog.html" class="text-white/80 hover:text-white">Blog</a></li>
+                  <li><a href="webinars.html" class="text-white/80 hover:text-white">Webinars</a></li>
+                  <li><a href="playbooks.html" class="text-white/80 hover:text-white">Playbooks</a></li>
+                </ul>
+              </div>
+
+              <!-- Company -->
+              <div>
+                <h4 class="font-semibold mb-4">Company</h4>
+                <ul class="space-y-2">
+                  <li><a href="about.html" class="text-white/80 hover:text-white">About Us</a></li>
+                  <li><a href="#" class="text-white/80 hover:text-white">Careers</a></li>
+                  <li><a href="contact.html" class="text-white/80 hover:text-white">Contact</a></li>
+                  <li><a href="privacy.html" class="text-white/80 hover:text-white">Privacy Policy</a></li>
+                </ul>
+              </div>  
+            </div>
+          </div>
+          
+          <div class="flex space-x-4 justify-center mt-6">
+            <!-- Facebook -->
+            <a href="https://facebook.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <rect width="20" height="20" x="2" y="2" rx="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://youtube.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.94C18.88 4.08 12 4 12 4s-6.88.08-8.6.48a2.78 2.78 0 0 0-1.94 1.94C1 8.14 1 12 1 12s0 3.86.46 5.58a2.78 2.78 0 0 0 1.94 1.94C5.12 19.92 12 20 12 20s6.88-.08 8.6-.48a2.78 2.78 0 0 0 1.94-1.94C23 15.86 23 12 23 12s0-3.86-.46-5.58z"/>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/company/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+
+            <!-- Twitter -->
+            <a href="https://twitter.com/debtdev" class="p-2 rounded-md text-white/60 hover:text-white hover:bg-slate-700 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Social + Disclaimer -->
+          <div class="mt-12 border-white/20 pt-8">
+            <div class="flex justify-between items-center gap-6">
+              <p class="text-xs text-white/60 leading-relaxed whitespace-nowrap">
+                <strong>Important:</strong> DebtDev provides technology solutions and does not provide financial advice. 
+                All financial decisions should be made in consultation with qualified professionals. 
+                TCPA compliance is the responsibility of the end user.
+              </p>
+            </div>
+          </div>
+
+          <!-- Copyright Line -->
+          <div class="mt-8 border-t border-white/20 pt-6 text-center">
+            <p class="text-sm text-white/60">
+              © 2025 DebtDev. All rights reserved. |
+              <a href="privacy.html" class="hover:text-white">Privacy Policy</a> |
+              <a href="terms.html" class="hover:text-white">Terms of Service</a>
+            </p>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script>
+      // Mobile menu functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !mobileMenu.contains(event.target) &&
+            !mobileMenuButton.contains(event.target)
+          ) {
+            mobileMenu.classList.remove("active");
+          }
+        });
+
+        // Sticky navigation
+        const navbar = document.querySelector(".navbar-sticky");
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 100,
+                behavior: "smooth",
+              });
+
+              // Close mobile menu if open
+              mobileMenu.classList.remove("active");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

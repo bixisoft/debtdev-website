@@ -90,7 +90,7 @@
       }
 
       .mobile-menu.active {
-        max-height: 300px;
+        max-height: 600px;
       }
       
       .policy-content {
@@ -107,6 +107,35 @@
         padding-bottom: 0.5rem;
         border-bottom: 1px solid #e2e8f0;
       }
+      /* Ensure proper viewport behavior */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Fix for navbar positioning */
+.navbar-sticky {
+  width: 100vw;
+  left: 0;
+  right: 0;
+}
+
+/* Container fix for mobile */
+.container {
+  max-width: 100%;
+}
+
+/* Mobile menu width fix */
+.mobile-menu {
+  width: 100%;
+}
+
+/* Logo size constraint for mobile */
+@media (max-width: 768px) {
+  .navbar-sticky img {
+    max-width: 150px;
+  }
+}
     </style>
   </head>
 

@@ -424,7 +424,7 @@ html, body {
                       There was an error submitting your form. Please try again or contact us directly.
                     </div>
 
-                    <form class="space-y-6" id="contact-form-element">
+                    <form class="space-y-6" id="contact-form-element" action="send_email.php" method="POST">
                       <div class="grid md:grid-cols-2 gap-4">
                         <div>
                           <label
@@ -434,7 +434,7 @@ html, body {
                           >
                           <input
                             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
-                            id="name"
+                            id="name" name="name"
                             required
                             value=""
                           />
@@ -449,7 +449,7 @@ html, body {
                           >
                           <input
                             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
-                            id="company"
+                            id="company" name="company"
                             required
                             value=""
                           />
@@ -467,7 +467,7 @@ html, body {
                           <input
                             type="email"
                             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
-                            id="email"
+                            id="email" name="email"
                             required
                             value=""
                           />
@@ -483,7 +483,7 @@ html, body {
                           <input
                             type="tel"
                             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
-                            id="phone"
+                            id="phone" name="phone"
                             required
                             placeholder="(555) 123-4567"
                             value=""
@@ -586,7 +586,7 @@ html, body {
                         >
                         <textarea
                           class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-2"
-                          id="message"
+                          id="message" name="message"
                           rows="4"
                           placeholder="Describe your current operations, pain points, and goals..."
                         ></textarea>
@@ -1301,37 +1301,38 @@ html, body {
         }
 
         // Form submission
-        contactForm.addEventListener("submit", function (event) {
-          event.preventDefault();
+        // Contact form submission
+contactForm.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-          if (validateForm()) {
-            // Show loading state
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Submitting...";
+  if (validateForm()) {
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
 
-            // Simulate form submission (in a real app, you would send to a server)
-            setTimeout(function() {
-              // Show success message
-              formSuccess.style.display = "block";
-              formError.style.display = "none";
-              
-              // Reset form
-              contactForm.reset();
-              dropdownSelected.textContent = "Select monthly volume";
-              
-              // Reset button
-              submitBtn.disabled = false;
-              submitBtn.textContent = "Request Free Audit";
-              
-              // Scroll to success message
-              formSuccess.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 1500);
-          } else {
-            // Show error message
-            formError.style.display = "block";
-            formError.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
+    // Collect form data
+    const formData = new FormData(contactForm);
+    formData.append('leadVolume', dropdownSelected.textContent);
+
+    // Send to PHP backend
+    fetch('send_email.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.message === "Email sent successfully") {
+        showSuccessMessage();
+      } else {
+        showErrorMessage();
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      showErrorMessage();
+    });
+  }
+});
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

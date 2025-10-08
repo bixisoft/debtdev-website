@@ -1301,37 +1301,79 @@ html, body {
         }
 
         // Form submission
-        // Contact form submission
+ // Helper functions for form responses
+function showSuccessMessage() {
+    const formSuccess = document.getElementById('form-success');
+    const formError = document.getElementById('form-error');
+    
+    formSuccess.style.display = 'block';
+    formError.style.display = 'none';
+    
+    // Reset form
+    document.getElementById('contact-form-element').reset();
+    document.getElementById('dropdownSelected').textContent = 'Select monthly volume';
+    
+    // Scroll to success message
+    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    
+    // Reset button after 3 seconds
+    setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Request Free Audit";
+    }, 3000);
+}
+
+function showErrorMessage() {
+    const formSuccess = document.getElementById('form-success');
+    const formError = document.getElementById('form-error');
+    
+    formSuccess.style.display = 'none';
+    formError.style.display = 'block';
+    
+    // Reset button
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Request Free Audit";
+    
+    // Scroll to error message
+    formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// Update the form submission event listener
 contactForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  if (validateForm()) {
-    // Show loading state
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Submitting...";
+    if (validateForm()) {
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting...";
 
-    // Collect form data
-    const formData = new FormData(contactForm);
-    formData.append('leadVolume', dropdownSelected.textContent);
+        // Collect form data
+        const formData = new FormData(contactForm);
+        formData.append('leadVolume', dropdownSelected.textContent);
 
-    // Send to PHP backend
-    fetch('send_email.php', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.message === "Email sent successfully") {
-        showSuccessMessage();
-      } else {
-        showErrorMessage();
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      showErrorMessage();
-    });
-  }
+        // Send to PHP backend
+        fetch('send_email.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.message === "Email sent successfully") {
+                showSuccessMessage();
+            } else {
+                showErrorMessage();
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showErrorMessage();
+        });
+    }
 });
 
         // Smooth scrolling for anchor links

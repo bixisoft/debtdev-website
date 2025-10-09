@@ -44,14 +44,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com'; // Gmail SMTP server
         $mail->SMTPAuth = true;
-        $mail->Username = 'rmk78@gmail.com'; // Your Gmail address
-        $mail->Password = 'your_app_password'; // Your Gmail app password
+        $mail->Username = 'mnaeem02825@gmail.com'; // Your Gmail address
+        $mail->Password = 'CHN@eem$38937'; // Your Gmail app password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         // Recipients
         $mail->setFrom('noreply@debtdev.com', 'DebtDev Website');
-        $mail->addAddress('rmk78@gmail.com', 'DebtDev Team'); // Primary recipient
+        $mail->addAddress('mnaeem02825@gmail.com', 'DebtDev Team'); // Primary recipient
         $mail->addReplyTo($email, $name); // Allow replying to the submitter
         
         // Optional: Add CC or BCC

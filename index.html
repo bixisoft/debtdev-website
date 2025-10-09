@@ -124,7 +124,28 @@
       max-width: 100%;
       overflow-x: hidden;
     }
+/* Index page ke CSS mein yeh add karo */
+.form-success {
+    display: none;
+    background-color: #f0fdf4;
+    border: 1px solid #22c55e;
+    color: #166534;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
 
+.form-error {
+    display: none;
+    background-color: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #7f1d1d;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
     /* Fix for navbar positioning */
     .navbar-sticky {
       width: 100vw;
@@ -1324,122 +1345,215 @@
               </div>
 
               <div class="p-6 pt-0">
-                <form class="space-y-6" id="contact-form">
-                  <div class="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-navy font-medium"
-                        for="name">Full Name *</label>
-                      <input
-                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
-                        id="name" required value="" />
+                <!-- Success Message -->
+                    <div id="form-success" class="form-success">
+                      <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="font-medium">Thank you for your message!</span>
+                      </div>
+                      <p class="mt-2">We've received your request and will contact you within 24 hours to schedule your free technology audit.</p>
                     </div>
 
-                    <div>
-                      <label
-                        class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-navy font-medium"
-                        for="company">Company *</label>
-                      <input
-                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
-                        id="company" required value="" />
+                    <!-- Error Message -->
+                    <div id="form-error" class="form-error">
+                      There was an error submitting your form. Please try again or contact us directly.
                     </div>
-                  </div>
+                 <form class="space-y-6" id="contact-form-element" action="send_email.php" method="POST">
+                      <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label
+                            class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-navy font-medium"
+                            for="name"
+                            >Full Name *</label
+                          >
+                          <input
+                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
+                            id="name" name="name"
+                            required
+                            value=""
+                          />
+                          <div class="text-red-500 text-xs mt-1 hidden" id="name-error">Please enter your full name</div>
+                        </div>
 
-                  <div class="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-navy font-medium"
-                        for="email">Email Address *</label>
-                      <input type="email"
-                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
-                        id="email" required value="" />
-                    </div>
+                        <div>
+                          <label
+                            class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-navy font-medium"
+                            for="company"
+                            >Company *</label
+                          >
+                          <input
+                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
+                            id="company" name="company"
+                            required
+                            value=""
+                          />
+                          <div class="text-red-500 text-xs mt-1 hidden" id="company-error">Please enter your company name</div>
+                        </div>
+                      </div>
 
-                    <div>
-                      <label
-                        class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-navy font-medium"
-                        for="phone">Phone Number *</label>
-                      <input type="tel"
-                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
-                        id="phone" required placeholder="(555) 123-4567" value="" />
-                    </div>
-                  </div>
+                      <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label
+                            class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-navy font-medium"
+                            for="email"
+                            >Email Address *</label
+                          >
+                          <input
+                            type="email"
+                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
+                            id="email" name="email"
+                            required
+                            value=""
+                          />
+                          <div class="text-red-500 text-xs mt-1 hidden" id="email-error">Please enter a valid email address</div>
+                        </div>
 
-                  <div class="relative">
-                    <label for="leadVolume"
-                      class="text-sm leading-none text-navy font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Monthly
-                      Lead Volume</label>
+                        <div>
+                          <label
+                            class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-navy font-medium"
+                            for="phone"
+                            >Phone Number *</label
+                          >
+                          <input
+                            type="tel"
+                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-2"
+                            id="phone" name="phone"
+                            required
+                            placeholder="(555) 123-4567"
+                            value=""
+                          />
+                          <div class="text-red-500 text-xs mt-1 hidden" id="phone-error">Please enter a valid phone number</div>
+                        </div>
+                      </div>
 
-                    <!-- Dropdown Button -->
-                    <button id="dropdownBtn" type="button" role="combobox" aria-expanded="false"
-                      class="flex h-10 w-full items-center justify-between rounded-md border border-gray-300 bg-white px-3 py-2 text-sm mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                      <span id="dropdownSelected" style="pointer-events: none">Select monthly volume</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-chevron-down opacity-70">
-                        <path d="m6 9 6 6 6-6"></path>
-                      </svg>
-                    </button>
+                      <div class="relative">
+                        <label
+                          for="leadVolume"
+                          class="text-sm leading-none text-navy font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          >Monthly Lead Volume</label
+                        >
 
-                    <!-- Custom Dropdown List -->
-                    <ul id="dropdownMenu"
-                      class="absolute left-0 w-full mt-1 hidden bg-white border border-gray-300 rounded-md shadow-lg z-10">
-                      <li class="px-3 py-2 hover:bg-gray-100 cursor-pointer" data-value="0-100">
-                        0-100 leads
-                      </li>
-                      <li class="px-3 py-2 hover:bg-gray-100 cursor-pointer" data-value="100-500">
-                        100-500 leads
-                      </li>
-                      <li class="px-3 py-2 hover:bg-gray-100 cursor-pointer" data-value="500-1000">
-                        500-1,000 leads
-                      </li>
-                      <li class="px-3 py-2 hover:bg-gray-100 cursor-pointer" data-value="1000-5000">
-                        1,000-5,000 leads
-                      </li>
-                      <li class="px-3 py-2 hover:bg-gray-100 cursor-pointer" data-value="5000+">
-                        5,000+ leads
-                      </li>
-                    </ul>
+                        <!-- Dropdown Button -->
+                        <button
+                          id="dropdownBtn"
+                          type="button"
+                          role="combobox"
+                          aria-expanded="false"
+                          class="flex h-10 w-full items-center justify-between rounded-md border border-gray-300 bg-white px-3 py-2 text-sm mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                          <span id="dropdownSelected" style="pointer-events: none"
+                            >Select monthly volume</span
+                          >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-chevron-down opacity-70"
+                          >
+                            <path d="m6 9 6 6 6-6"></path>
+                          </svg>
+                        </button>
 
-                    <!-- Hidden Select (for form submission) -->
-                    <select id="leadVolume" name="leadVolume" aria-hidden="true" tabindex="-1" class="hidden">
-                      <option value="0-100">0-100 leads</option>
-                      <option value="100-500">100-500 leads</option>
-                      <option value="500-1000">500-1,000 leads</option>
-                      <option value="1000-5000">1,000-5,000 leads</option>
-                      <option value="5000+">5,000+ leads</option>
-                    </select>
-                  </div>
+                        <!-- Custom Dropdown List -->
+                        <ul
+                          id="dropdownMenu"
+                          class="absolute left-0 w-full mt-1 hidden bg-white border border-gray-300 rounded-md shadow-lg z-10"
+                        >
+                          <li
+                            class="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                            data-value="0-100"
+                          >
+                            0-100 leads
+                          </li>
+                          <li
+                            class="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                            data-value="100-500"
+                          >
+                            100-500 leads
+                          </li>
+                          <li
+                            class="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                            data-value="500-1000"
+                          >
+                            500-1,000 leads
+                          </li>
+                          <li
+                            class="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                            data-value="1000-5000"
+                          >
+                            1,000-5,000 leads
+                          </li>
+                          <li
+                            class="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                            data-value="5000+"
+                          >
+                            5,000+ leads
+                          </li>
+                        </ul>
 
-                  <div>
-                    <label
-                      class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-navy font-medium"
-                      for="message">Tell us about your current challenges</label>
-                    <textarea
-                      class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-2"
-                      id="message" rows="4"
-                      placeholder="Describe your current operations, pain points, and goals..."></textarea>
-                  </div>
+                        <!-- Hidden Select (for form submission) -->
+                        <select
+                          id="leadVolume"
+                          name="leadVolume"
+                          aria-hidden="true"
+                          tabindex="-1"
+                          class="hidden"
+                        >
+                          <option value="0-100">0-100 leads</option>
+                          <option value="100-500">100-500 leads</option>
+                          <option value="500-1000">500-1,000 leads</option>
+                          <option value="1000-5000">1,000-5,000 leads</option>
+                          <option value="5000+">5,000+ leads</option>
+                        </select>
+                      </div>
 
-                  <div class="p-4 bg-muted/20 rounded-lg">
-                    <div class="flex items-start space-x-3">
-                      <input type="checkbox" id="consent-checkbox"
-                        class="mt-1 h-4 w-4 rounded border-gray-300 text-emerald focus:ring-emerald" />
-                      <label for="consent-checkbox" class="font-medium text-sm text-steel leading-relaxed">
-                        By submitting, you agree to our Terms and acknowledge
-                        our TCPA DNC policies. You consent to receive calls,
-                        texts, or emails regarding your inquiry. Message data
-                        rates may apply. You may opt out at any time.
-                      </label>
-                    </div>
-                  </div>
+                      <div>
+                        <label
+                          class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-navy font-medium"
+                          for="message"
+                          >Tell us about your current challenges</label
+                        >
+                        <textarea
+                          class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-2"
+                          id="message" name="message"
+                          rows="4"
+                          placeholder="Describe your current operations, pain points, and goals..."
+                        ></textarea>
+                      </div>
 
-                  <button style="background-color: #28a99c"
-                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 btn-primary w-full"
-                    type="submit" id="submit-btn" disabled>
-                    Request Free Audit
-                  </button>
-                </form>
+                      <div class="p-4 bg-muted/20 rounded-lg">
+                        <div class="flex items-start space-x-3">
+                          <input
+                            type="checkbox"
+                            id="consent-checkbox"
+                            class="mt-1 h-4 w-4 rounded border-gray-300 text-emerald focus:ring-emerald"
+                          />
+                          <label
+                            for="consent-checkbox"
+                            class="font-medium text-sm text-steel leading-relaxed"
+                          >
+                            By submitting, you agree to our Terms and acknowledge our TCPA DNC policies. You consent to receive calls, texts, or emails regarding your inquiry. Message data rates may apply. You may opt out at any time.
+                          </label>
+                        </div>
+                        <div class="text-red-500 text-xs mt-1 hidden" id="consent-error">You must agree to our terms to continue</div>
+                      </div>
+
+                      <button
+                        style="background-color: #28a99c"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-white font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 btn-primary w-full"
+                        type="submit"
+                        id="submit-btn"
+                      >
+                        Request Free Audit
+                      </button>
+                    </form>
               </div>
             </div>
 
@@ -1760,435 +1874,668 @@
   </div>
 
   <script>
-    // Mobile menu functionality
-    document.addEventListener("DOMContentLoaded", function () {
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
+ // Mobile menu functionality
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-      mobileMenuButton.addEventListener("click", function () {
-        mobileMenu.classList.toggle("active");
-      });
+  mobileMenuButton.addEventListener("click", function () {
+    mobileMenu.classList.toggle("active");
+  });
 
-      // Close mobile menu when clicking outside
-      document.addEventListener("click", function (event) {
-        if (
-          !mobileMenu.contains(event.target) &&
-          !mobileMenuButton.contains(event.target)
-        ) {
-          mobileMenu.classList.remove("active");
-        }
-      });
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", function (event) {
+    if (
+      !mobileMenu.contains(event.target) &&
+      !mobileMenuButton.contains(event.target)
+    ) {
+      mobileMenu.classList.remove("active");
+    }
+  });
 
-      // Sticky navigation
-      const navbar = document.querySelector(".navbar-sticky");
+  // Sticky navigation
+  const navbar = document.querySelector(".navbar-sticky");
 
-      window.addEventListener("scroll", function () {
-        if (window.scrollY > 100) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 100) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
 
-      // DTI Calculator functionality
-      const incomeInput = document.getElementById("income");
-      const debtInput = document.getElementById("debt");
-      const calculateBtn = document.getElementById("calculateBtn");
-      const dtiResult = document.getElementById("dti-result");
-      const dtiPlaceholder = document.getElementById("dti-placeholder");
-      const dtiRatio = document.getElementById("dti-ratio");
-      const dtiStatus = document.getElementById("dti-status");
-      const dtiExplanation = document.getElementById("dti-explanation");
+  // DTI Calculator functionality
+  const incomeInput = document.getElementById("income");
+  const debtInput = document.getElementById("debt");
+  const calculateBtn = document.getElementById("calculateBtn");
+  const dtiResult = document.getElementById("dti-result");
+  const dtiPlaceholder = document.getElementById("dti-placeholder");
+  const dtiRatio = document.getElementById("dti-ratio");
+  const dtiStatus = document.getElementById("dti-status");
+  const dtiExplanation = document.getElementById("dti-explanation");
 
-      // Household dropdown functionality
-      const householdDropdownBtn = document.getElementById(
-        "householdDropdownBtn"
-      );
-      const householdDropdownMenu = document.getElementById(
-        "householdDropdownMenu"
-      );
-      const householdSelected = document.getElementById("householdSelected");
+  // Household dropdown functionality
+  const householdDropdownBtn = document.getElementById(
+    "householdDropdownBtn"
+  );
+  const householdDropdownMenu = document.getElementById(
+    "householdDropdownMenu"
+  );
+  const householdSelected = document.getElementById("householdSelected");
 
-      householdDropdownBtn.addEventListener("click", function () {
-        householdDropdownMenu.classList.toggle("hidden");
-      });
+  if (householdDropdownBtn && householdDropdownMenu) {
+    householdDropdownBtn.addEventListener("click", function () {
+      householdDropdownMenu.classList.toggle("hidden");
+    });
 
-      householdDropdownMenu.querySelectorAll("li").forEach((item) => {
-        item.addEventListener("click", function () {
-          const value = this.getAttribute("data-value");
-          householdSelected.textContent = this.textContent;
-          householdDropdownMenu.classList.add("hidden");
+    householdDropdownMenu.querySelectorAll("li").forEach((item) => {
+      item.addEventListener("click", function () {
+        const value = this.getAttribute("data-value");
+        householdSelected.textContent = this.textContent;
+        householdDropdownMenu.classList.add("hidden");
 
-          // Enable calculate button if all fields are filled
-          if (incomeInput.value && debtInput.value) {
-            calculateBtn.disabled = false;
-          }
-        });
-      });
-
-      // Close household dropdown when clicking outside
-      document.addEventListener("click", function (event) {
-        if (
-          !householdDropdownBtn.contains(event.target) &&
-          !householdDropdownMenu.contains(event.target)
-        ) {
-          householdDropdownMenu.classList.add("hidden");
-        }
-      });
-
-      // Enable calculate button when both income and debt are filled
-      incomeInput.addEventListener("input", checkCalculateButton);
-      debtInput.addEventListener("input", checkCalculateButton);
-
-      function checkCalculateButton() {
-        if (
-          incomeInput.value &&
-          debtInput.value &&
-          householdSelected.textContent !== "Select household size"
-        ) {
+        // Enable calculate button if all fields are filled
+        if (incomeInput.value && debtInput.value) {
           calculateBtn.disabled = false;
-        } else {
-          calculateBtn.disabled = true;
         }
+      });
+    });
+
+    // Close household dropdown when clicking outside
+    document.addEventListener("click", function (event) {
+      if (
+        !householdDropdownBtn.contains(event.target) &&
+        !householdDropdownMenu.contains(event.target)
+      ) {
+        householdDropdownMenu.classList.add("hidden");
       }
+    });
+  }
 
-      // Calculate DTI
-      calculateBtn.addEventListener("click", function () {
-        const income = parseFloat(incomeInput.value);
-        const debt = parseFloat(debtInput.value);
+  // Enable calculate button when both income and debt are filled
+  if (incomeInput && debtInput) {
+    incomeInput.addEventListener("input", checkCalculateButton);
+    debtInput.addEventListener("input", checkCalculateButton);
+  }
 
-        if (income && debt) {
-          const dti = (debt / income) * 100;
-          dtiRatio.textContent = dti.toFixed(1) + "%";
+  function checkCalculateButton() {
+    if (
+      incomeInput.value &&
+      debtInput.value &&
+      householdSelected.textContent !== "Select household size"
+    ) {
+      calculateBtn.disabled = false;
+    } else {
+      calculateBtn.disabled = true;
+    }
+  }
 
-          // Determine DTI status
-          if (dti < 20) {
-            dtiStatus.textContent = "Excellent";
-            dtiStatus.className = "font-bold text-emerald mb-4";
-          } else if (dti < 36) {
-            dtiStatus.textContent = "Good";
-            dtiStatus.className = "font-bold text-green-500 mb-4";
-          } else if (dti < 43) {
-            dtiStatus.textContent = "Fair";
-            dtiStatus.className = "font-bold text-yellow-500 mb-4";
-          } else {
-            dtiStatus.textContent = "Poor";
-            dtiStatus.className = "font-bold text-red-500 mb-4";
-          }
+  // Calculate DTI
+  if (calculateBtn) {
+    calculateBtn.addEventListener("click", function () {
+      const income = parseFloat(incomeInput.value);
+      const debt = parseFloat(debtInput.value);
 
-          dtiExplanation.textContent = `Your debt-to-income ratio is ${dti.toFixed(
-            1
-          )}%, which indicates ${dtiStatus.textContent.toLowerCase()} financial health.`;
+      if (income && debt) {
+        const dti = (debt / income) * 100;
+        dtiRatio.textContent = dti.toFixed(1) + "%";
 
-          // Show result and hide placeholder
-          dtiPlaceholder.style.display = "none";
-          dtiResult.classList.add("active");
+        // Determine DTI status
+        if (dti < 20) {
+          dtiStatus.textContent = "Excellent";
+          dtiStatus.className = "font-bold text-emerald mb-4";
+        } else if (dti < 36) {
+          dtiStatus.textContent = "Good";
+          dtiStatus.className = "font-bold text-green-500 mb-4";
+        } else if (dti < 43) {
+          dtiStatus.textContent = "Fair";
+          dtiStatus.className = "font-bold text-yellow-500 mb-4";
+        } else {
+          dtiStatus.textContent = "Poor";
+          dtiStatus.className = "font-bold text-red-500 mb-4";
         }
-      });
 
-      // Calculator Tab Functionality
-      const calculatorTabs = document.querySelectorAll(".calculator-tab");
-      const calculatorContents = document.querySelectorAll(
-        ".calculator-content"
+        dtiExplanation.textContent = `Your debt-to-income ratio is ${dti.toFixed(
+          1
+        )}%, which indicates ${dtiStatus.textContent.toLowerCase()} financial health.`;
+
+        // Show result and hide placeholder
+        dtiPlaceholder.style.display = "none";
+        dtiResult.classList.add("active");
+      }
+    });
+  }
+
+  // Calculator Tab Functionality
+  const calculatorTabs = document.querySelectorAll(".calculator-tab");
+  const calculatorContents = document.querySelectorAll(
+    ".calculator-content"
+  );
+
+  calculatorTabs.forEach((tab) => {
+    tab.addEventListener("click", function () {
+      const tabId = this.getAttribute("data-tab");
+
+      // Update active tab
+      calculatorTabs.forEach((t) => t.classList.remove("active"));
+      this.classList.add("active");
+
+      // Show corresponding content
+      calculatorContents.forEach((content) =>
+        content.classList.add("hidden")
       );
+      document
+        .getElementById(`${tabId}-calculator`)
+        .classList.remove("hidden");
+    });
+  });
 
-      calculatorTabs.forEach((tab) => {
-        tab.addEventListener("click", function () {
-          const tabId = this.getAttribute("data-tab");
+  // Debt Payoff Calculator
+  const calculateDebtBtn = document.getElementById("calculate-debt-btn");
+  const debtPayoffResult = document.getElementById("debt-payoff-result");
+  const debtPayoffPlaceholder = document.getElementById(
+    "debt-payoff-placeholder"
+  );
+  const payoffTime = document.getElementById("payoff-time");
+  const totalInterest = document.getElementById("total-interest");
+  const totalPayment = document.getElementById("total-payment");
+  const debtPayoffExplanation = document.getElementById(
+    "debt-payoff-explanation"
+  );
 
-          // Update active tab
-          calculatorTabs.forEach((t) => t.classList.remove("active"));
-          this.classList.add("active");
-
-          // Show corresponding content
-          calculatorContents.forEach((content) =>
-            content.classList.add("hidden")
-          );
-          document
-            .getElementById(`${tabId}-calculator`)
-            .classList.remove("hidden");
-        });
-      });
-
-      // Debt Payoff Calculator
-      const calculateDebtBtn = document.getElementById("calculate-debt-btn");
-      const debtPayoffResult = document.getElementById("debt-payoff-result");
-      const debtPayoffPlaceholder = document.getElementById(
-        "debt-payoff-placeholder"
+  if (calculateDebtBtn) {
+    calculateDebtBtn.addEventListener("click", function () {
+      const totalDebt = parseFloat(
+        document.getElementById("total-debt").value
       );
-      const payoffTime = document.getElementById("payoff-time");
-      const totalInterest = document.getElementById("total-interest");
-      const totalPayment = document.getElementById("total-payment");
-      const debtPayoffExplanation = document.getElementById(
-        "debt-payoff-explanation"
+      const monthlyPayment = parseFloat(
+        document.getElementById("monthly-payment").value
       );
+      const interestRate =
+        parseFloat(document.getElementById("interest-rate").value) /
+        100 /
+        12; // Monthly interest rate
 
-      calculateDebtBtn.addEventListener("click", function () {
-        const totalDebt = parseFloat(
-          document.getElementById("total-debt").value
-        );
-        const monthlyPayment = parseFloat(
-          document.getElementById("monthly-payment").value
-        );
-        const interestRate =
-          parseFloat(document.getElementById("interest-rate").value) /
-          100 /
-          12; // Monthly interest rate
+      if (totalDebt && monthlyPayment && interestRate) {
+        let balance = totalDebt;
+        let months = 0;
+        let totalInterestPaid = 0;
 
-        if (totalDebt && monthlyPayment && interestRate) {
-          let balance = totalDebt;
-          let months = 0;
-          let totalInterestPaid = 0;
+        while (balance > 0 && months < 600) {
+          // Max 50 years
+          const interest = balance * interestRate;
+          totalInterestPaid += interest;
+          balance = balance + interest - monthlyPayment;
+          months++;
 
-          while (balance > 0 && months < 600) {
-            // Max 50 years
-            const interest = balance * interestRate;
-            totalInterestPaid += interest;
-            balance = balance + interest - monthlyPayment;
-            months++;
-
-            if (balance >= totalDebt) {
-              // Payment is too low to cover interest
-              payoffTime.textContent = "Never (payment too low)";
-              totalInterest.textContent = "$" + totalInterestPaid.toFixed(2);
-              totalPayment.textContent =
-                "$" + (totalDebt + totalInterestPaid).toFixed(2);
-              debtPayoffExplanation.textContent =
-                "Your monthly payment is not enough to cover the interest charges. Consider increasing your payment amount.";
-              debtPayoffPlaceholder.style.display = "none";
-              debtPayoffResult.classList.add("active");
-              return;
-            }
+          if (balance >= totalDebt) {
+            // Payment is too low to cover interest
+            payoffTime.textContent = "Never (payment too low)";
+            totalInterest.textContent = "$" + totalInterestPaid.toFixed(2);
+            totalPayment.textContent =
+              "$" + (totalDebt + totalInterestPaid).toFixed(2);
+            debtPayoffExplanation.textContent =
+              "Your monthly payment is not enough to cover the interest charges. Consider increasing your payment amount.";
+            debtPayoffPlaceholder.style.display = "none";
+            debtPayoffResult.classList.add("active");
+            return;
           }
+        }
 
-          const totalPaid = totalDebt + totalInterestPaid;
+        const totalPaid = totalDebt + totalInterestPaid;
 
-          payoffTime.textContent =
-            months +
-            " months (" +
-            Math.floor(months / 12) +
-            " years " +
-            (months % 12) +
-            " months)";
-          totalInterest.textContent = "$" + totalInterestPaid.toFixed(2);
-          totalPayment.textContent = "$" + totalPaid.toFixed(2);
+        payoffTime.textContent =
+          months +
+          " months (" +
+          Math.floor(months / 12) +
+          " years " +
+          (months % 12) +
+          " months)";
+        totalInterest.textContent = "$" + totalInterestPaid.toFixed(2);
+        totalPayment.textContent = "$" + totalPaid.toFixed(2);
 
-          debtPayoffExplanation.textContent = `With a monthly payment of $${monthlyPayment}, you'll pay off your debt in ${Math.floor(
+        debtPayoffExplanation.textContent = `With a monthly payment of $${monthlyPayment}, you'll pay off your debt in ${Math.floor(
+          months / 12
+        )} years and ${months % 12
+          } months, paying $${totalInterestPaid.toFixed(2)} in interest.`;
+
+        // Show result and hide placeholder
+        debtPayoffPlaceholder.style.display = "none";
+        debtPayoffResult.classList.add("active");
+      }
+    });
+  }
+
+  // Credit Card Payoff Calculator
+  const calculateCardBtn = document.getElementById("calculate-card-btn");
+  const creditCardResult = document.getElementById("credit-card-result");
+  const creditCardPlaceholder = document.getElementById(
+    "credit-card-placeholder"
+  );
+  const cardPayoffTime = document.getElementById("card-payoff-time");
+  const cardTotalInterest = document.getElementById(
+    "card-total-interest"
+  );
+  const cardTotalPayment = document.getElementById("card-total-payment");
+  const creditCardExplanation = document.getElementById(
+    "credit-card-explanation"
+  );
+
+  if (calculateCardBtn) {
+    calculateCardBtn.addEventListener("click", function () {
+      const cardBalance = parseFloat(
+        document.getElementById("card-balance").value
+      );
+      const cardAPR =
+        parseFloat(document.getElementById("card-apr").value) / 100 / 12; // Monthly interest rate
+      const minPaymentPercent =
+        parseFloat(document.getElementById("min-payment").value) / 100;
+      const minPayment = cardBalance * minPaymentPercent;
+
+      if (cardBalance && cardAPR) {
+        let balance = cardBalance;
+        let months = 0;
+        let totalInterestPaid = 0;
+
+        while (balance > 0 && months < 600) {
+          // Max 50 years
+          const interest = balance * cardAPR;
+          totalInterestPaid += interest;
+          balance = balance + interest - minPayment;
+          months++;
+
+          if (balance >= cardBalance) {
+            // Payment is too low to cover interest
+            cardPayoffTime.textContent = "Never (payment too low)";
+            cardTotalInterest.textContent =
+              "$" + totalInterestPaid.toFixed(2);
+            cardTotalPayment.textContent =
+              "$" + (cardBalance + totalInterestPaid).toFixed(2);
+            creditCardExplanation.textContent =
+              "Your minimum payment is not enough to cover the interest charges. Consider paying more than the minimum.";
+            creditCardPlaceholder.style.display = "none";
+            creditCardResult.classList.add("active");
+            return;
+          }
+        }
+
+        const totalPaid = cardBalance + totalInterestPaid;
+
+        cardPayoffTime.textContent =
+          months +
+          " months (" +
+          Math.floor(months / 12) +
+          " years " +
+          (months % 12) +
+          " months)";
+        cardTotalInterest.textContent = "$" + totalInterestPaid.toFixed(2);
+        cardTotalPayment.textContent = "$" + totalPaid.toFixed(2);
+
+        creditCardExplanation.textContent = `With a minimum payment of $${minPayment.toFixed(
+          2
+        )} (${minPaymentPercent * 100
+          }%), you'll pay off your credit card in ${Math.floor(
             months / 12
           )} years and ${months % 12
-            } months, paying $${totalInterestPaid.toFixed(2)} in interest.`;
+          } months, paying $${totalInterestPaid.toFixed(2)} in interest.`;
 
-          // Show result and hide placeholder
-          debtPayoffPlaceholder.style.display = "none";
-          debtPayoffResult.classList.add("active");
-        }
+        // Show result and hide placeholder
+        creditCardPlaceholder.style.display = "none";
+        creditCardResult.classList.add("active");
+      }
+    });
+  }
+
+  // Contact form dropdown functionality
+  const dropdownBtn = document.getElementById("dropdownBtn");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  const dropdownSelected = document.getElementById("dropdownSelected");
+
+  if (dropdownBtn && dropdownMenu) {
+    dropdownBtn.addEventListener("click", function () {
+      dropdownMenu.classList.toggle("hidden");
+    });
+
+    dropdownMenu.querySelectorAll("li").forEach((item) => {
+      item.addEventListener("click", function () {
+        dropdownSelected.textContent = this.textContent;
+        dropdownMenu.classList.add("hidden");
       });
+    });
 
-      // Credit Card Payoff Calculator
-      const calculateCardBtn = document.getElementById("calculate-card-btn");
-      const creditCardResult = document.getElementById("credit-card-result");
-      const creditCardPlaceholder = document.getElementById(
-        "credit-card-placeholder"
-      );
-      const cardPayoffTime = document.getElementById("card-payoff-time");
-      const cardTotalInterest = document.getElementById(
-        "card-total-interest"
-      );
-      const cardTotalPayment = document.getElementById("card-total-payment");
-      const creditCardExplanation = document.getElementById(
-        "credit-card-explanation"
-      );
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function (event) {
+      if (
+        !dropdownBtn.contains(event.target) &&
+        !dropdownMenu.contains(event.target)
+      ) {
+        dropdownMenu.classList.add("hidden");
+      }
+    });
+  }
 
-      calculateCardBtn.addEventListener("click", function () {
-        const cardBalance = parseFloat(
-          document.getElementById("card-balance").value
-        );
-        const cardAPR =
-          parseFloat(document.getElementById("card-apr").value) / 100 / 12; // Monthly interest rate
-        const minPaymentPercent =
-          parseFloat(document.getElementById("min-payment").value) / 100;
-        const minPayment = cardBalance * minPaymentPercent;
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
 
-        if (cardBalance && cardAPR) {
-          let balance = cardBalance;
-          let months = 0;
-          let totalInterestPaid = 0;
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
 
-          while (balance > 0 && months < 600) {
-            // Max 50 years
-            const interest = balance * cardAPR;
-            totalInterestPaid += interest;
-            balance = balance + interest - minPayment;
-            months++;
-
-            if (balance >= cardBalance) {
-              // Payment is too low to cover interest
-              cardPayoffTime.textContent = "Never (payment too low)";
-              cardTotalInterest.textContent =
-                "$" + totalInterestPaid.toFixed(2);
-              cardTotalPayment.textContent =
-                "$" + (cardBalance + totalInterestPaid).toFixed(2);
-              creditCardExplanation.textContent =
-                "Your minimum payment is not enough to cover the interest charges. Consider paying more than the minimum.";
-              creditCardPlaceholder.style.display = "none";
-              creditCardResult.classList.add("active");
-              return;
-            }
-          }
-
-          const totalPaid = cardBalance + totalInterestPaid;
-
-          cardPayoffTime.textContent =
-            months +
-            " months (" +
-            Math.floor(months / 12) +
-            " years " +
-            (months % 12) +
-            " months)";
-          cardTotalInterest.textContent = "$" + totalInterestPaid.toFixed(2);
-          cardTotalPayment.textContent = "$" + totalPaid.toFixed(2);
-
-          creditCardExplanation.textContent = `With a minimum payment of $${minPayment.toFixed(
-            2
-          )} (${minPaymentPercent * 100
-            }%), you'll pay off your credit card in ${Math.floor(
-              months / 12
-            )} years and ${months % 12
-            } months, paying $${totalInterestPaid.toFixed(2)} in interest.`;
-
-          // Show result and hide placeholder
-          creditCardPlaceholder.style.display = "none";
-          creditCardResult.classList.add("active");
-        }
-      });
-
-      // Contact form dropdown functionality
-      const dropdownBtn = document.getElementById("dropdownBtn");
-      const dropdownMenu = document.getElementById("dropdownMenu");
-      const dropdownSelected = document.getElementById("dropdownSelected");
-
-      dropdownBtn.addEventListener("click", function () {
-        dropdownMenu.classList.toggle("hidden");
-      });
-
-      dropdownMenu.querySelectorAll("li").forEach((item) => {
-        item.addEventListener("click", function () {
-          dropdownSelected.textContent = this.textContent;
-          dropdownMenu.classList.add("hidden");
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 100,
+          behavior: "smooth",
         });
-      });
 
-      // Close dropdown when clicking outside
-      document.addEventListener("click", function (event) {
-        if (
-          !dropdownBtn.contains(event.target) &&
-          !dropdownMenu.contains(event.target)
-        ) {
-          dropdownMenu.classList.add("hidden");
+        // Close mobile menu if open
+        mobileMenu.classList.remove("active");
+      }
+    });
+  });
+}); // THIS WAS MISSING - Closing brace for main DOMContentLoaded
+
+// Contact Form Handler - MOVED OUTSIDE the main DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form-element');
+    const submitBtn = document.getElementById('submit-btn');
+    const formSuccess = document.getElementById('form-success');
+    const formError = document.getElementById('form-error');
+    const consentCheckbox = document.getElementById('consent-checkbox');
+
+    if (!contactForm) return;
+
+    // Form validation function
+    function validateForm() {
+        let isValid = true;
+        
+        // Reset error states
+        document.querySelectorAll('.text-red-500').forEach(el => {
+            el.classList.add('hidden');
+        });
+        
+        // Validate name
+        const name = document.getElementById('name').value.trim();
+        if (!name) {
+            document.getElementById('name-error').classList.remove('hidden');
+            isValid = false;
         }
-      });
+        
+        // Validate company
+        const company = document.getElementById('company').value.trim();
+        if (!company) {
+            document.getElementById('company-error').classList.remove('hidden');
+            isValid = false;
+        }
+        
+        // Validate email
+        const email = document.getElementById('email').value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            document.getElementById('email-error').classList.remove('hidden');
+            isValid = false;
+        }
+        
+        // Validate phone
+        const phone = document.getElementById('phone').value.trim();
+        const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+        const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+        if (!phoneRegex.test(cleanPhone)) {
+            document.getElementById('phone-error').classList.remove('hidden');
+            isValid = false;
+        }
+        
+        // Validate lead volume
+        const leadVolume = document.getElementById('dropdownSelected').textContent;
+        if (leadVolume === 'Select monthly volume') {
+            // Create error for dropdown if needed
+            isValid = false;
+        }
+        
+        // Validate consent
+        if (!consentCheckbox.checked) {
+            document.getElementById('consent-error').classList.remove('hidden');
+            isValid = false;
+        }
+        
+        return isValid;
+    }
 
-      // Contact form validation
-      const contactForm = document.getElementById("contact-form");
-      const consentCheckbox = document.getElementById("consent-checkbox");
-      const submitBtn = document.getElementById("submit-btn");
-
-      // Enable submit button when consent is checked
-      consentCheckbox.addEventListener("change", function () {
-        submitBtn.disabled = !this.checked;
-      });
-
-      // Form submission
-      contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        // Get form values
-        const name = document.getElementById("name").value;
-        const company = document.getElementById("company").value;
-        const email = document.getElementById("email").value;
-        const phone = document.getElementById("phone").value;
-        const leadVolume = dropdownSelected.textContent;
-        const message = document.getElementById("message").value;
-
-        // In a real application, you would send this data to a server
-        // For now, we'll just show an alert
-        alert(
-          `Thank you, ${name}! Your free audit request has been submitted. We'll contact you at ${email} or ${phone} within 24 hours.`
-        );
-
+    // Show success message
+    function showSuccessMessage() {
+        formSuccess.style.display = 'block';
+        formError.style.display = 'none';
+        
         // Reset form
         contactForm.reset();
-        dropdownSelected.textContent = "Select monthly volume";
-        submitBtn.disabled = true;
-      });
+        document.getElementById('dropdownSelected').textContent = 'Select monthly volume';
+        
+        // Scroll to success message
+        formSuccess.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+        
+        // Reset button after 3 seconds
+        setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Request Free Audit";
+        }, 3000);
+    }
 
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
+    // Show error message
+    function showErrorMessage(message = 'There was an error submitting your form. Please try again or contact us directly.') {
+        formSuccess.style.display = 'none';
+        formError.style.display = 'block';
+        formError.textContent = message;
+        
+        // Reset button
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Request Free Audit";
+        
+        // Scroll to error message
+        formError.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+    }
 
-          const targetId = this.getAttribute("href");
-          if (targetId === "#") return;
-
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 100,
-              behavior: "smooth",
+    // Real-time validation
+    function setupRealTimeValidation() {
+        const fields = ['name', 'company', 'email', 'phone'];
+        
+        fields.forEach(field => {
+            const input = document.getElementById(field);
+            const error = document.getElementById(`${field}-error`);
+            
+            if (!input || !error) return;
+            
+            input.addEventListener('blur', function() {
+                validateField(field, this.value);
             });
+            
+            input.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    error.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Consent checkbox real-time validation
+        if (consentCheckbox) {
+            consentCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    document.getElementById('consent-error').classList.add('hidden');
+                }
+            });
+        }
+    }
 
-            // Close mobile menu if open
-            mobileMenu.classList.remove("active");
+    // Validate individual field
+    function validateField(field, value) {
+        const error = document.getElementById(`${field}-error`);
+        if (!error) return true;
+        
+        switch(field) {
+            case 'name':
+            case 'company':
+                if (!value.trim()) {
+                    error.classList.remove('hidden');
+                    return false;
+                }
+                break;
+            case 'email':
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    error.classList.remove('hidden');
+                    return false;
+                }
+                break;
+            case 'phone':
+                const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                const cleanPhone = value.replace(/[\s\-\(\)]/g, '');
+                if (!phoneRegex.test(cleanPhone)) {
+                    error.classList.remove('hidden');
+                    return false;
+                }
+                break;
+        }
+        
+        error.classList.add('hidden');
+        return true;
+    }
+
+    // Form submission handler
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        if (validateForm()) {
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting...";
+
+            // Collect form data
+            const formData = new FormData(contactForm);
+            formData.append('leadVolume', document.getElementById('dropdownSelected').textContent);
+            formData.append('source', 'contact-page');
+
+            // Send to backend
+            fetch('send_email.php', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json',
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === "success") {
+                    showSuccessMessage();
+                } else {
+                    showErrorMessage(data.message || 'There was an error submitting your form.');
+                }
+            })
+            .catch(error => {
+                console.error('Form submission error:', error);
+                showErrorMessage('Network error. Please try again or contact us directly.');
+            });
+        } else {
+            // Scroll to first error
+            const firstError = document.querySelector('.text-red-500:not(.hidden)');
+            if (firstError) {
+                firstError.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }
+        }
+    });
+
+    // Initialize real-time validation
+    setupRealTimeValidation();
+    
+    console.log("Contact form handler initialized successfully");
+});
+
+// Counter animation
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+  const speed = 200; // lower = faster
+
+  const animate = () => {
+    counters.forEach((counter) => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+        const increment = Math.ceil(target / speed);
+
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 20);
+        } else {
+          // format numbers (500K, 2B etc.)
+          if (target >= 1000000000) {
+            counter.innerText = target / 1000000000 + "B";
+          } else if (target >= 1000000) {
+            counter.innerText = target / 1000000 + "M";
+          } else if (target >= 1000) {
+            counter.innerText = target / 1000 + "K";
+          } else {
+            counter.innerText = target;
           }
-        });
-      });
-    });
-    document.addEventListener("DOMContentLoaded", () => {
-      const counters = document.querySelectorAll(".counter");
-      const speed = 200; // lower = faster
-
-      const animate = () => {
-        counters.forEach((counter) => {
-          const updateCount = () => {
-            const target = +counter.getAttribute("data-target");
-            const count = +counter.innerText;
-            const increment = Math.ceil(target / speed);
-
-            if (count < target) {
-              counter.innerText = count + increment;
-              setTimeout(updateCount, 20);
-            } else {
-              // format numbers (500K, 2B etc.)
-              if (target >= 1000000000) {
-                counter.innerText = target / 1000000000 + "B";
-              } else if (target >= 1000000) {
-                counter.innerText = target / 1000000 + "M";
-              } else if (target >= 1000) {
-                counter.innerText = target / 1000 + "K";
-              } else {
-                counter.innerText = target;
-              }
-            }
-          };
-          updateCount();
-        });
+        }
       };
-
-      // Run when in viewport
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              animate();
-              observer.disconnect();
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      observer.observe(document.querySelector(".counter"));
+      updateCount();
     });
+  };
+
+  // Run when in viewport
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate();
+          observer.disconnect();
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  if (document.querySelector(".counter")) {
+    observer.observe(document.querySelector(".counter"));
+  }
+});
+
+// Utility function for phone number formatting
+function formatPhoneNumber(phone) {
+  const cleaned = phone.replace(/\D/g, '');
+  const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+  if (match) {
+    return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+  }
+  return phone;
+}
+
+// Auto-format phone number
+document.addEventListener('DOMContentLoaded', function() {
+  const phoneInput = document.getElementById('phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+      const input = e.target.value.replace(/\D/g, '');
+      const formatted = formatPhoneNumber(input);
+      if (formatted !== e.target.value) {
+        e.target.value = formatted;
+      }
+    });
+  }
+});
   </script>
 </body>
 

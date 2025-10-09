@@ -1,151 +1,173 @@
 <?php
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
-
-// Enable error reporting for debugging (remove in production)
-error_reporting(E_ALL);
-ini_set('display_errors', 0); // Set to 0 in production
-
-// Include PHPMailer autoloader
-require 'vendor/autoload.php'; // If using Composer
-// Or manually include files if not using Composer:
-// require 'PHPMailer/src/Exception.php';
-// require 'PHPMailer/src/PHPMailer.php';
-// require 'PHPMailer/src/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Form data validation and collection
-    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-    $company = filter_var($_POST['company'], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
-    $leadVolume = isset($_POST['leadVolume']) ? filter_var($_POST['leadVolume'], FILTER_SANITIZE_STRING) : 'Not specified';
-    $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
-    
+    // Collect and sanitize inputs
+    $name = htmlspecialchars($_POST['name'] ?? '');
+    $company = htmlspecialchars($_POST['company'] ?? '');
+    $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
+    $phone = htmlspecialchars($_POST['phone'] ?? '');
+    $leadVolume = htmlspecialchars($_POST['leadVolume'] ?? 'Not specified');
+    $message = htmlspecialchars($_POST['message'] ?? '');
+
     // Basic validation
-    if (empty($name) || empty($email) || empty($phone)) {
+    if (empty($name) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($message)) {
         http_response_code(400);
-        echo json_encode(array("message" => "Please fill in all required fields"));
-        exit;
-    }
-    
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        http_response_code(400);
-        echo json_encode(array("message" => "Invalid email address"));
+        echo json_encode(["status" => "error", "message" => "Invalid input"]);
         exit;
     }
 
-    // Create PHPMailer instance
+ // Construct HTML email
+$html_message = "
+<!DOCTYPE html>
+<html>
+<head>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<style>
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.email-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+.header {
+    background: linear-gradient(135deg, #0B1B2B, #162A3F);
+    text-align: center;
+    padding: 35px 20px 25px;
+    color: #ffffff;
+    position: relative;
+}
+.header .logo-box {
+    display: inline-block;
+    background: #ffffff;
+    border-radius: 15px; /* Rounded rectangle shape */
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+.header .logo-box img {
+    max-width: 110px;
+    height: auto;
+    display: block;
+}
+.header h1 {
+    margin: 12px 0 0;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.content {
+    padding: 35px 40px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+.content h2 {
+    color: #28a99c;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+.field {
+    margin-bottom: 14px;
+}
+.field strong {
+    color: #0B1B2B;
+}
+a {
+    color: #28a99c;
+    text-decoration: none;
+    font-weight: 500;
+}
+.footer {
+    background: #f0faf8;
+    padding: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #0B1B2B;
+    border-top: 1px solid #d6efeb;
+}
+@media(max-width:600px) {
+    .email-container { margin: 20px 10px; }
+    .content { padding: 25px 20px; font-size: 15px; }
+    .header h1 { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+<div class='email-container'>
+    <div class='header'>
+        <div class='logo-box'>
+            <img src='https://debtdev.com/assets/img/logo.png' alt='DebtDev Logo'/>
+        </div>
+        <h1>Contact Information</h1>
+    </div>
+    <div class='content'>
+        <h2>Dear DebtDev Team,</h2>
+        <p>A new contact form has been submitted. Below are the details:</p>
+        <div class='field'><strong>Name:</strong> {$name}</div>
+        <div class='field'><strong>Company:</strong> {$company}</div>
+        <div class='field'><strong>Email:</strong> <a href='mailto:{$email}'>{$email}</a></div>
+        <div class='field'><strong>Phone:</strong> <a href='tel:{$phone}'>{$phone}</a></div>
+        <div class='field'><strong>Monthly Lead Volume:</strong> {$leadVolume}</div>
+        <div class='field'><strong>Message:</strong><br>" . nl2br($message) . "</div>
+    </div>
+    <div class='footer'>
+        © " . date('Y') . " DebtDev. All rights reserved.
+    </div>
+</div>
+</body>
+</html>
+";
+//  Send email using PHPMailer
     $mail = new PHPMailer(true);
 
     try {
-        // Server settings
+        // SMTP settings
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; // Gmail SMTP server
+        $mail->Host = 'smtp.mailtrap.io';
         $mail->SMTPAuth = true;
-        $mail->Username = 'mnaeem02825@gmail.com'; // Your Gmail address
-        $mail->Password = 'CHN@eem$38937'; // Your Gmail app password
+        $mail->Username = '4b2667d2975e44';
+        $mail->Password = '10f307526fbaf4';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         // Recipients
         $mail->setFrom('noreply@debtdev.com', 'DebtDev Website');
-        $mail->addAddress('mnaeem02825@gmail.com', 'DebtDev Team'); // Primary recipient
-        $mail->addReplyTo($email, $name); // Allow replying to the submitter
-        
-        // Optional: Add CC or BCC
-        // $mail->addCC('cc@example.com');
-        // $mail->addBCC('bcc@example.com');
+        $mail->addAddress('rmak78@gmail.com', 'DebtDev Team');
+        $mail->addReplyTo($email, $name);
 
         // Content
         $mail->isHTML(true);
-        $mail->Subject = "New Contact Form Submission - DebtDev";
-        
-        // HTML email body
-        $email_body = "
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <style>
-                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                .header { background: #0B1B2B; color: white; padding: 20px; text-align: center; }
-                .content { background: #f9f9f9; padding: 20px; }
-                .field { margin-bottom: 15px; padding: 10px; background: white; border-left: 4px solid #28a99c; }
-                .field-label { font-weight: bold; color: #0B1B2B; }
-                .footer { background: #eee; padding: 15px; text-align: center; font-size: 12px; color: #666; }
-            </style>
-        </head>
-        <body>
-            <div class='container'>
-                <div class='header'>
-                    <h2>New Contact Form Submission</h2>
-                    <p>DebtDev Website</p>
-                </div>
-                <div class='content'>
-                    <div class='field'>
-                        <span class='field-label'>Name:</span> $name
-                    </div>
-                    <div class='field'>
-                        <span class='field-label'>Company:</span> $company
-                    </div>
-                    <div class='field'>
-                        <span class='field-label'>Email:</span> <a href='mailto:$email'>$email</a>
-                    </div>
-                    <div class='field'>
-                        <span class='field-label'>Phone:</span> <a href='tel:$phone'>$phone</a>
-                    </div>
-                    <div class='field'>
-                        <span class='field-label'>Monthly Lead Volume:</span> $leadVolume
-                    </div>
-                    <div class='field'>
-                        <span class='field-label'>Message:</span><br>
-                        " . nl2br($message) . "
-                    </div>
-                </div>
-                <div class='footer'>
-                    <p>This email was sent from the DebtDev contact form on " . date('F j, Y \a\t g:i A') . "</p>
-                    <p>DebtDev - Fintech Engineering for Debt & Credit</p>
-                </div>
-            </div>
-        </body>
-        </html>
-        ";
-        
-        // Plain text version for non-HTML email clients
-        $text_body = "
-        New Contact Form Submission - DebtDev
-        
-        Name: $name
-        Company: $company
-        Email: $email
-        Phone: $phone
-        Monthly Lead Volume: $leadVolume
-        
-        Message:
-        $message
-        
-        Submitted on: " . date('Y-m-d H:i:s') . "
-        ";
-        
-        $mail->Body = $email_body;
-        $mail->AltBody = $text_body;
+        $mail->Subject = "New Contact Form Submission - {$name}";
+        $mail->Body = $html_message;
+        $mail->AltBody = strip_tags($html_message);
 
-        // Send email
         if ($mail->send()) {
             http_response_code(200);
-            echo json_encode(array("message" => "Email sent successfully"));
+            echo json_encode(["status" => "success", "message" => "Email sent successfully"]);
         } else {
-            throw new Exception('Mailer Error: ' . $mail->ErrorInfo);
+            throw new Exception($mail->ErrorInfo);
         }
-        
     } catch (Exception $e) {
         http_response_code(500);
-        echo json_encode(array("message" => "Message could not be sent. Mailer Error: " . $e->getMessage()));
+        echo json_encode(["status" => "error", "message" => "Mailer Error: " . $e->getMessage()]);
     }
 } else {
     http_response_code(403);
-    echo json_encode(array("message" => "There was a problem with your submission, please try again."));
+    echo json_encode(["status" => "error", "message" => "Invalid request method"]);
 }
 ?>
